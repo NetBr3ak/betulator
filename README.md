@@ -1,10 +1,10 @@
-### 🎲 Betulator - Martingale Strategy Tracker for European Roulette
+# 🎲 Betulator - Martingale Strategy Tracker for European Roulette
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **"Gambling is a tax on people who are bad at math."**
 
-But what if you’re **good** at math? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette[...]
+But what if you’re **good** at math? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette.
 
 If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But remember: **Martingale is simple in concept, but risky in practice**.
 
@@ -185,21 +185,15 @@ However, beneath this simplicity lies the harsh reality of exponential growth, f
 
 #### Next Bet After \( L \) Losses
 The bet size after \( L \) losses:
-$$
-b_{\text{next}} = b \cdot 2^L
-$$
+\[ b_{\text{next}} = b \cdot 2^L \]
 
 #### Total Amount Wagered After \( L \) Losses
 The cumulative amount wagered:
-$$
-W_{\text{total}} = b \cdot (2^L - 1)
-$$
+\[ W_{\text{total}} = b \cdot (2^L - 1) \]
 
 #### Profit After a Win
 Guaranteed profit after a win:
-$$
-\text{Profit} = b
-$$
+\[ \text{Profit} = b \]
 
 ### Example: Bet Progression
 If the initial bet is \( b = 10 \) and you lose 3 times in a row:
@@ -209,14 +203,10 @@ If the initial bet is \( b = 10 \) and you lose 3 times in a row:
 - Fourth bet: \( b = 40 \cdot 2 = 80 \)
 
 The total amount wagered:
-$$
-W_{\text{total}} = 10 + 20 + 40 + 80 = 150
-$$
+\[ W_{\text{total}} = 10 + 20 + 40 + 80 = 150 \]
 
 The profit if you win the fourth bet:
-$$
-\text{Profit} = 10
-$$
+\[ \text{Profit} = 10 \]
 
 ---
 
@@ -225,36 +215,24 @@ $$
 ### Roulette Probabilities
 In European roulette:
 - **Winning Probability**:
-$$
-P(\text{win}) = \frac{18}{37} \approx 48.65\%
-$$
+\[ P(\text{win}) = \frac{18}{37} \approx 48.65\% \]
 
 - **Losing Probability**:
-$$
-P(\text{lose}) = \frac{19}{37} \approx 51.35\%
-$$
+\[ P(\text{lose}) = \frac{19}{37} \approx 51.35\% \]
 
 ### Losing Streak Probability
 The probability of losing \( L \) consecutive bets:
-$$
-P(\text{loss streak}) = \left( \frac{19}{37} \right)^L
-$$
+\[ P(\text{loss streak}) = \left( \frac{19}{37} \right)^L \]
 
 #### Example Calculations:
 - Probability of losing 3 times in a row:
-  $$
-  P(\text{loss streak, 3}) = \left( \frac{19}{37} \right)^3 \approx 13.96\%
-  $$
+  \[ P(\text{loss streak, 3}) = \left( \frac{19}{37} \right)^3 \approx 13.96\% \]
 
 - Probability of losing 5 times in a row:
-  $$
-  P(\text{loss streak, 5}) = \left( \frac{19}{37} \right)^5 \approx 2.18\%
-  $$
+  \[ P(\text{loss streak, 5}) = \left( \frac{19}{37} \right)^5 \approx 2.18\% \]
 
 - Probability of losing 10 times in a row:
-  $$
-  P(\text{loss streak, 10}) = \left( \frac{19}{37} \right)^{10} \approx 0.048\%
-  $$
+  \[ P(\text{loss streak, 10}) = \left( \frac{19}{37} \right)^{10} \approx 0.048\% \]
 
 ---
 
@@ -262,32 +240,22 @@ $$
 
 ### Exponential Growth of Bets
 The size of bets grows exponentially after consecutive losses:
-$$
-b_{\text{next}} = b \cdot 2^L
-$$
+\[ b_{\text{next}} = b \cdot 2^L \]
 
 #### Example:
 - Initial bet: \( b = 10 \)
 - After 5 losses:
-  $$
-  b_{\text{next}} = 10 \cdot 2^5 = 320
-  $$
+  \[ b_{\text{next}} = 10 \cdot 2^5 = 320 \]
 - After 10 losses:
-  $$
-  b_{\text{next}} = 10 \cdot 2^{10} = 10,240
-  $$
+  \[ b_{\text{next}} = 10 \cdot 2^{10} = 10,240 \]
 
 ### Total Amount Wagered
 The total amount wagered after \( L \) losses:
-$$
-W_{\text{total}} = b \cdot (2^L - 1)
-$$
+\[ W_{\text{total}} = b \cdot (2^L - 1) \]
 
 #### Example:
 - \( b = 10 \), \( L = 10 \):
-  $$
-  W_{\text{total}} = 10 \cdot (2^{10} - 1) = 10,230
-  $$
+  \[ W_{\text{total}} = 10 \cdot (2^{10} - 1) = 10,230 \]
 
 ---
 
@@ -299,15 +267,11 @@ Most casinos impose limits to prevent Martingale abuse. For example:
 - **Maximum Bet**: \( b_{\text{max}} = 500 \)
 
 The maximum streak you can sustain before hitting the limit:
-$$
-L_{\text{max}} = \log_2\left(\frac{b_{\text{max}}}{b_{\text{min}}}\right)
-$$
+\[ L_{\text{max}} = \log_2\left(\frac{b_{\text{max}}}{b_{\text{min}}}\right) \]
 
 #### Example:
 - \( b_{\text{min}} = 10 \), \( b_{\text{max}} = 500 \):
-  $$
-  L_{\text{max}} = \log_2\left(\frac{500}{10}\right) = 5.64
-  $$
+  \[ L_{\text{max}} = \log_2\left(\frac{500}{10}\right) = 5.64 \]
 Thus, you can only double up 5 times before exceeding the table limit.
 
 ---
@@ -316,9 +280,7 @@ Thus, you can only double up 5 times before exceeding the table limit.
 
 ### Risk of Ruin
 The **Risk of Ruin** measures the probability of losing your entire bankroll before achieving a win:
-$$
-\text{Risk of Ruin} = (1 - e)^{\frac{B}{b}}
-$$
+\[ \text{Risk of Ruin} = (1 - e)^{\frac{B}{b}} \]
 Where:
 - \( B \) is the bankroll,
 - \( b \) is the initial bet,
@@ -326,24 +288,18 @@ Where:
 
 #### Example:
 - \( B = 1,000 \), \( b = 10 \):
-  $$
-  \text{Risk of Ruin} = (1 - 0.027)^{\frac{1000}{10}} \approx 5.04\%
-  $$
+  \[ \text{Risk of Ruin} = (1 - 0.027)^{\frac{1000}{10}} \approx 5.04\% \]
 
 ### Expected Value (EV)
 The **Expected Value** combines probabilities and outcomes:
-$$
-EV = P(\text{win}) \cdot \text{Profit} - P(\text{lose}) \cdot \text{Loss}
-$$
+\[ EV = P(\text{win}) \cdot \text{Profit} - P(\text{lose}) \cdot \text{Loss} \]
 
 #### Example:
 - \( b = 10 \),
 - \( P(\text{win}) = 48.65\% \),
 - \( P(\text{lose}) = 51.35\% \),
 - Total loss after 5 streaks \( W_{\text{total}} = 310 \):
-  $$
-  EV = (0.4865 \cdot 10) - (0.5135 \cdot 310) \approx -5.31
-  $$
+  \[ EV = (0.4865 \cdot 10) - (0.5135 \cdot 310) \approx -5.31 \]
 
 The negative \( EV \) confirms that the house edge ensures a long-term loss.
 
