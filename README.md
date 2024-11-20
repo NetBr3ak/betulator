@@ -62,7 +62,7 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
    Works flawlessly on Command Prompt, PowerShell, or Windows Terminal.
 2. **macOS/Linux**:  
    Compatible with any standard terminal application.
-3. **Android**:  
+3. **Android (Alpha testing)**:  
    Run it on the go using [Termux](https://termux.dev/) or similar terminal emulators.
 
 ---
