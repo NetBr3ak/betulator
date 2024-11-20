@@ -71,17 +71,12 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
    cd betulator
    ```
 
-2. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the Program**
+2. **Run the Program**
    ```bash
    python betulator.py
    ```
 
-4. Celebrate! 🎉 You’re ready to take on the house.
+3. Celebrate! 🎉 You’re ready to take on the house.
 
 ---
 
