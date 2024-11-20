@@ -386,4 +386,3 @@ This project is licensed under the [MIT License](LICENSE). Feel free to modify, 
 Have ideas to make this tool even better? Found a bug? Open an issue or submit a pull request.
 
 And remember: **"In gambling, math is your friend—but only if you know when to quit."** 😉
-```
