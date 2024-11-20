@@ -1,6 +1,5 @@
 Here is the improved and more detailed `README.md` for the `betulator` repository:
 
-```markdown
 # 🎲 Martingale Strategy Tracker for European Roulette
 
 ![Project Logo](https://example.com/logo.png)
