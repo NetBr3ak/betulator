@@ -87,13 +87,7 @@ class MartingaleStrategy:
             return
 
         sys.stdout.write(color_text(f"\n{EMOJI_HIST} === Bet History ===\n", HEADER, bold=True))
-        # Define column widths
-        no_width = 4
-        result_width = 7
-        bet_width = 12
-        balance_width = 14
-
-        # Header
+        no_width, result_width, bet_width, balance_width = 4, 7, 12, 14
         header = (
             f"{color_text('No', HEADER, bold=True):<{no_width}}| "
             f"{color_text('Result', HEADER, bold=True):<{result_width}}| "
@@ -103,7 +97,6 @@ class MartingaleStrategy:
         sys.stdout.write(header)
         sys.stdout.write(color_text("-" * (no_width + result_width + bet_width + balance_width + 9) + "\n", INFO))
 
-        # Rows
         for i, (outcome, bet, bankroll) in enumerate(self.history, 1):
             outcome_colored = color_text(f"{EMOJI_SUCCESS} W" if outcome == 'W' else f"{EMOJI_FAILURE} L", SUCCESS if outcome == 'W' else FAILURE)
             line = (
@@ -139,11 +132,10 @@ class MartingaleStrategy:
         max_bankroll = max(self.bankroll_history)
         min_bankroll = min(self.bankroll_history)
         range_bankroll = max_bankroll - min_bankroll or 1
-
         chart_width = 50
         step = range_bankroll / chart_width
 
-        for i, bankroll in enumerate(self.bankroll_history):
+        for bankroll in self.bankroll_history:
             bar_length = int((bankroll - min_bankroll) / step)
             bar = "█" * bar_length
             label = f"{self.format_number(bankroll):>10}"
@@ -175,14 +167,13 @@ def display_header():
     header_text = "Martingale Strategy for European Roulette"
     sys.stdout.write(color_text(header_text + "\n\n", HEADER, bold=True))
 
-def display_instructions():
-    sys.stdout.write(color_text("Instructions:\n", HEADER, bold=True))
-    sys.stdout.write(color_text(f" {EMOJI_SUCCESS} Enter 'w' (Win)\n", SUCCESS))
-    sys.stdout.write(color_text(f" {EMOJI_FAILURE} Enter 'l' (Loss)\n", FAILURE))
-    sys.stdout.write(color_text(f" {EMOJI_HIST} Enter 'h' (History)\n", INFO))
-    sys.stdout.write(color_text(f" {EMOJI_STATS} Enter 's' (Statistics)\n", BET_BALANCE))
-    sys.stdout.write(color_text(f" {EMOJI_CHART} Enter 'c' (Chart)\n", WARNING))
-    sys.stdout.write(color_text(f" {EMOJI_EXIT} Enter 'e' (Exit)\n\n", WHITE))
+def display_controls():
+    sys.stdout.write(color_text(f"{EMOJI_SUCCESS} Enter 'w' (Win)\n", SUCCESS))
+    sys.stdout.write(color_text(f"{EMOJI_FAILURE} Enter 'l' (Loss)\n", FAILURE))
+    sys.stdout.write(color_text(f"{EMOJI_HIST} Enter 'h' (History)\n", INFO))
+    sys.stdout.write(color_text(f"{EMOJI_STATS} Enter 's' (Statistics)\n", BET_BALANCE))
+    sys.stdout.write(color_text(f"{EMOJI_CHART} Enter 'c' (Chart)\n", WARNING))
+    sys.stdout.write(color_text(f"{EMOJI_EXIT} Enter 'e' (Exit)\n\n", WHITE))
 
 def main():
     clear_console()
@@ -198,7 +189,7 @@ def main():
     while True:
         clear_console()
         display_header()
-        display_instructions()
+        display_controls()
 
         sys.stdout.write(color_text(f"{EMOJI_BANKROLL} Balance: {bettor.format_number(bettor.bankroll)}\n", BET_BALANCE))
         sys.stdout.write(color_text(f"{EMOJI_BET} Current bet: {bettor.format_number(bettor.current_bet)}\n\n", BET_BALANCE))
@@ -211,17 +202,17 @@ def main():
             sys.stdout.write(color_text(f"\n{EMOJI_EXIT} Exiting the game...\n\n", HEADER, bold=True))
             break
         elif outcome == 'h':
+            clear_console()
             bettor.display_history()
             input(color_text("Press Enter to continue...", INFO))
-            continue
         elif outcome == 's':
+            clear_console()
             bettor.display_statistics()
             input(color_text("Press Enter to continue...", INFO))
-            continue
         elif outcome == 'c':
+            clear_console()
             bettor.display_chart()
             input(color_text("Press Enter to continue...", INFO))
-            continue
         elif outcome in ['w', 'l']:
             if not bettor.update(outcome):
                 break
