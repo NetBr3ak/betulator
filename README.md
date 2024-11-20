@@ -24,11 +24,10 @@ Let’s dive into the **theory, math, and humor** behind one of the most famous 
 8. [Financial Implications](#-financial-implications)
 9. [Casino Constraints](#-casino-constraints)
 10. [Advanced Concepts](#-advanced-concepts)
-11. [Compatibility](#-compatibility)
-12. [Customization](#-customization)
-13. [FAQs](#-faqs)
-14. [License](#-license)
-15. [Feedback and Contributions](#-feedback-and-contributions)
+11. [Customization](#-customization)
+12. [FAQs](#-faqs)
+13. [License](#-license)
+14. [Feedback and Contributions](#-feedback-and-contributions)
 
 ---
 
