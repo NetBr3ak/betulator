@@ -1,180 +1,102 @@
-# 🎲 Martingale Strategy Tracker for European Roulette - Betulator
+# 🎲 Martingale Strategy Tracker for European Roulette
 
-**"Luck is what happens when preparation meets opportunity." — Seneca**  
-But in gambling, it often feels more like **"Luck is what happens when math takes your wallet hostage."** Welcome to the **Martingale Strategy Tracker**, a scientifically engineered (and mildly sarcastic) tool to help you apply and monitor the **Martingale betting strategy** in **European roulette**.
+**"Mathematics is the supreme judge; from its decisions, there is no appeal." — Tobias Dantzig**  
 
-Whether you're here to challenge the odds, explore the limits of probability, or simply document your descent into financial chaos, this tool is your loyal companion. 
+But what happens when we pit mathematics against a spinning wheel of chance? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale betting strategy** in **European roulette**.  
 
-Let’s dive into the **math, logic, and hilarity** of trying to outwit a system built to keep you losing.
+If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But before you embark on your journey, remember: **Martingale is simple in concept, but dangerous in execution.** This tool won’t save you from financial ruin, but it will give you an exact record of how you got there.
+
+Let’s dive into the **theory, math, and humor** behind one of the most famous (and flawed) betting systems in gambling history.
+
+---
+
+## 📜 Table of Contents
+
+1. [What Is This Tool?](#-what-is-this-tool)
+2. [Installation](#-installation)
+3. [How to Use](#-how-to-use)
+4. [Key Features](#-key-features)
+5. [Why Martingale?](#-why-martingale)
+6. [The Science of Martingale](#-the-science-of-martingale)
+7. [Mathematical Foundations](#-mathematical-foundations)
 
 ---
 
 ## 🎯 What Is This Tool?
 
-This tool is not magic, nor does it claim to defy the laws of the universe. What it **does do**:
-- **Tracks your bets in real-time**: Keeps you organized and ensures you stay on the Martingale path (no cheating!).
-- **Provides detailed analytics**:
-  - Historical records of bets, outcomes, and bankroll changes.
-  - Key statistics, including ROI, win/loss ratios, and total wagers.
-- **Visualizes your progress**:
-  - Charts your bankroll as it rises... or plummets.
-- **Keeps you accountable**:
-  - Like an honest friend reminding you, "Doubling down might not end well."
+The **Martingale Strategy Tracker** is a **bet-tracking and analysis tool** for live European roulette.  
+It is designed to:
+- **Track your bets in real-time**:
+  - Automatically calculates your next bet size based on the Martingale progression.
+  - Keeps an organized record of wins, losses, and bankroll changes.
+- **Visualize your performance**:
+  - Generates intuitive charts to display the rise and fall of your bankroll.
+- **Analyze your strategy**:
+  - Provides detailed statistics, such as ROI, win/loss ratios, and total wagers.
+
+If the Martingale strategy is your sword, this tool is your scabbard, sharpening and organizing your approach.
 
 ---
 
-## 🧠 The Science Behind Martingale
+## 🛠️ Installation
 
-### 🎲 The Alluring Simplicity
+### Prerequisites
 
-The **Martingale strategy** is built on the premise of **doubling down until you win**, which guarantees:
-1. Recovery of all previous losses.
-2. A net profit equal to your initial bet.
+1. **Python 3.6+**  
+   Ensure you have Python installed. [Download it here](https://www.python.org/).
 
-Sounds foolproof, right? Not quite.
-
-The **core assumption** is that a win is inevitable if you play long enough. But like all things in life—relationships, diets, and cryptocurrency investments—Martingale doesn't work as smoothly as advertised. 
-
-Let’s break it down mathematically.
+2. **Terminal Emulator for Android (Optional)**  
+   Want to run this tool on mobile? Install [Termux](https://termux.dev/).
 
 ---
 
-### 🧮 Mathematical Foundations
+### Installation Steps
 
-#### 1. Bet Progression
-After `L` consecutive losses, the bet for the next round is:
-bash
-b_next = b * 2^L
+1. **Clone the Repository**
+```bash
+git clone https://github.com/NetBr3ak/betulator.git
+cd betulator
+```
 
-#### 2. Total Wagered
-The total amount wagered after `L` losses:
-bash
-total_wagered = b * (2^L - 1)
+2. **Run the Program**
+```bash
+python betulator.py
+```
 
-Example:
-- Initial bet (`b`) = €10
-- After 5 losses:
-bash
-total_wagered = 10 * (2^5 - 1) = €310
-
-#### 3. Net Profit
-If you win after `L` losses, the profit is always equal to the initial bet:
-bash
-profit = b
-
-This is the **irresistible promise** of Martingale: no matter how deep you dig, one win brings you back to zero (and adds €10 on top).
+3. Celebrate! 🎉 You’re ready to take on the house.
 
 ---
 
-### 📊 Probabilities: How Likely Are You to Lose?
+## 🎮 How to Use
 
-#### 1. Winning Probability
-In European roulette, there are 18 red and 18 black numbers, but the sneaky green zero tips the odds in favor of the house:
-bash
-P(win) = 18 / 37 ≈ 48.65%
+### Step 1: Launch the Tool
+Run the program using the command above. You’ll be greeted with prompts to enter your **initial bet size** and **starting bankroll**.
 
-#### 2. Losing Streak Probability
-The probability of losing `L` consecutive bets:
-bash
-P(loss_streak) = (19 / 37)^L
+### Step 2: Play Roulette
+Input the outcome of each round:
+- **`w`**: Record a win.
+- **`l`**: Record a loss.
 
-Example:
-- Probability of losing 5 times in a row:
-bash
-P(loss_streak_5) = (19 / 37)^5 ≈ 2.18%
-
-This seems low... until you hit a streak of 10 losses. Then you're betting the price of a used car. 🚗
-
-#### 3. Expected Loss
-The **house edge** (2.7%) ensures that, over time, your losses will add up:
-bash
-Expected_loss = Total_wagered * House_edge
-
-Example:
-- Total wagered = €1,000
-- Expected loss:
-bash
-Expected_loss = 1,000 * 0.027 = €27
-
-This is why casinos love Martingale players: short-term thrills, long-term losses.
+### Step 3: View Progress
+Use these commands during your session:
+- **`h`**: View detailed bet history.
+- **`s`**: Check your statistics.
+- **`c`**: See a visual chart of your bankroll over time.
+- **`e`**: Exit the program.
 
 ---
 
-## 🤔 Why Martingale? Why Not Something Else?
+## 🌟 Key Features
 
-### What I Considered:
-1. **Fibonacci Strategy**  
-   - A safer progression: bets follow the Fibonacci sequence (1, 1, 2, 3, 5...).
-   - Slower loss accumulation, but also slower recovery.  
-   **Verdict**: Too slow. Life’s short, and so is my patience.
+### 1. 📜 Bet History
+Keep track of every bet you place:
+- Round number.
+- Bet size.
+- Result (win or loss).
+- Balance change (delta).
+- Current bankroll.
 
-2. **Kelly Criterion**  
-   - Maximizes bankroll growth by betting a fraction proportional to your edge.  
-   **Verdict**: Useless without an edge. In roulette, the house always has it.
-
-3. **D'Alembert System**  
-   - Increase your bet by 1 unit after a loss, decrease by 1 after a win.  
-   **Verdict**: Safe, but painfully slow to recover losses.
-
-### Why Martingale?
-- **Immediate Recovery**: One win erases all losses.  
-- **Psychological Appeal**: Feels like you’re always one step away from victory.  
-- **The Fun Factor**: Exponential betting is exciting, in the same way skydiving without a parachute is.
-
----
-
-## 📈 Advanced Insights into Risk and Reward
-
-### Risk of Ruin
-The probability of depleting your bankroll depends on:
-- Starting balance (`B`)
-- Initial bet (`b`)
-- House edge (`e`)
-
-The formula for **Risk of Ruin**:
-bash
-Risk_of_Ruin = (1 - e)^(B / b)
-
-### When Does Martingale Break?
-
-1. **Casino Table Limits**  
-   Most casinos cap bets to prevent Martingale abuse. Example:
-   - Table limit = €500
-   - Starting bet = €10
-   - You max out after 6 losses:
-bash
-b_next = 10 * 2^6 = €640 (not allowed)
-
-2. **Bankroll Exhaustion**  
-   Even without limits, exponential growth catches up. Starting with €1,000:
-   - After 7 losses, you've wagered €1,270 total.
-
----
-
-## 🎮 How to Use This Tool
-
-1. **Run the Program**:
-bash
-python martingale_tracker.py
-
-2. **Input Your Initial Bet and Bankroll**:
-bash
-🎲 Initial bet: 10
-💰 Starting balance: 1000
-
-3. **Play and Track Results**:
-   - Enter `w` for a win, `l` for a loss.
-   - Use commands:
-     - `h`: View bet history.
-     - `s`: Check statistics.
-     - `c`: See bankroll chart.
-     - `e`: Exit.
-
----
-
-## 📊 Example Outputs
-
-### Bet History
+Example output:
 bash
 📜 === Bet History ===
 No   | Result | Bet    | Delta  | Balance
@@ -184,7 +106,16 @@ No   | Result | Bet    | Delta  | Balance
 3    | ❌ L   | 20.00  | -20.00 |  980.00
 4    | ✅ W   | 40.00  | +40.00 | 1020.00
 
-### Statistics
+---
+
+### 2. 📊 Detailed Statistics
+Analyze your performance with aggregated metrics:
+- **Total bets placed**.
+- **Win/loss record**.
+- **ROI (Return on Investment)**.
+- **Net profit/loss**.
+
+Example:
 bash
 📊 === Statistics ===
 💰 Total bets: 4
@@ -194,7 +125,11 @@ bash
 📘 ROI (Return on Investment): +20.00%
 💰 Balance: 1020.00
 
-### Bankroll Chart
+---
+
+### 3. 📈 Bankroll Chart
+Visualize the trajectory of your bankroll. A bar chart plots your balance after each round, making it easy to identify trends.  
+Example:
 bash
 📈 === Bankroll Chart ===
 Initial bankroll: 1000.00
@@ -208,31 +143,229 @@ Min bankroll: 980.00
 
 ---
 
+## 🤔 Why Martingale?
+
+The **Martingale strategy** is seductive in its simplicity and promise:
+1. **Guaranteed recovery**: After every win, you erase all previous losses and make a profit equal to your initial bet.
+2. **Ease of execution**: Double your bet after every loss, reset to the initial bet after every win.
+
+While the math behind Martingale is straightforward, its risks are significant. Let’s explore its inner workings.
+
+---
+
+## 🧠 The Science of Martingale
+
+### How It Works
+The strategy operates on a binary principle:
+1. If you lose a bet, **double your wager** to recover previous losses.
+2. If you win, **reset to your initial bet size**.
+
+This progression ensures that every win results in a net profit. Mathematically, it can be summarized as:
+bash
+Profit = b
+where `b` is the initial bet.
+
+### The Promise vs. Reality
+The promise of Martingale is predicated on two assumptions:
+1. **Infinite bankroll**: You can double your bets indefinitely.
+2. **No table limits**: Casinos won’t cap your maximum bet size.
+
+In reality, neither of these conditions is met, making Martingale a high-risk strategy.
+
+---
+
+## 🧮 Mathematical Foundations
+
+#### 1. Bet Progression
+After `L` consecutive losses, the next bet is:
+bash
+b_next = b * 2^L
+
+#### 2. Total Wagered
+The total amount wagered after `L` losses:
+bash
+total_wagered = b * (2^L - 1)
+
+#### 3. Net Profit
+If you win after `L` losses, your profit is always equal to the initial bet:
+bash
+profit = b
+
+---
+
+## 📊 Probabilities and Risks: How Likely Are You to Survive?
+
+### 1. Winning Probability in European Roulette
+European roulette has 18 red numbers, 18 black numbers, and 1 green zero. The green zero is what gives the house its edge.  
+
+The probability of winning a bet on red or black:
+bash
+P(win) = 18 / 37 ≈ 48.65%
+
+This means **your odds of losing are slightly higher**:
+bash
+P(lose) = 19 / 37 ≈ 51.35%
+
+---
+
+### 2. Losing Streak Probability
+The likelihood of encountering a losing streak increases dramatically as the number of losses (`L`) grows.
+
+Formula:
+bash
+P(loss_streak) = (19 / 37)^L
+
+Examples:
+- Probability of losing 5 times in a row:
+bash
+P(loss_streak_5) = (19 / 37)^5 ≈ 2.18%
+
+- Probability of losing 10 times in a row:
+bash
+P(loss_streak_10) = (19 / 37)^10 ≈ 0.048% (Still possible, and very painful.)
+
+---
+
+### 3. Expected Loss: The House Edge
+The **house edge** in European roulette ensures that, on average, the casino takes 2.7% of every bet you place. This is why Martingale cannot overcome the system in the long run.
+
+Formula:
+bash
+Expected_loss = Total_wagered * House_edge
+
+Example:
+- Total wagered = €1,000
+- Expected loss:
+bash
+Expected_loss = 1,000 * 0.027 = €27
+
+---
+
+## 🔢 Advanced Concepts
+
+### 1. **Risk of Ruin**
+Risk of Ruin measures the likelihood of depleting your bankroll entirely before you achieve a win. It depends on:
+- **Starting bankroll** (`B`).
+- **Initial bet size** (`b`).
+- **House edge** (`e`).
+
+Formula:
+bash
+Risk_of_Ruin = (1 - e)^(B / b)
+
+Example:
+- Starting bankroll = €1,000
+- Initial bet = €10
+- House edge = 0.027
+bash
+Risk_of_Ruin = (1 - 0.027)^(1000 / 10) ≈ 5.04%
+
+The smaller your bankroll relative to your initial bet, the higher the risk of ruin.
+
+---
+
+### 2. **Exponential Growth of Bets**
+Martingale’s simplicity hides an inconvenient truth: your bets grow **exponentially** after each loss.  
+
+If your starting bet is €10:
+- After 5 losses: €320
+- After 10 losses: €10,240 (Say goodbye to your life savings.)
+
+---
+
+### 3. **Casino Table Limits**
+Most casinos impose table limits to prevent Martingale abuse. Example:
+- Minimum bet: €10
+- Maximum bet: €500
+
+In this scenario:
+- Starting at €10, you hit the table limit after 5 losses.
+
+bash
+b_next = 10 * 2^5 = €320 (allowed)  
+b_next = 10 * 2^6 = €640 (not allowed)
+
+If your loss streak exceeds the table limit, the strategy collapses.
+
+---
+
+### 4. **Expected Value (EV)**
+The expected value of a Martingale progression combines the probabilities of winning and losing streaks:
+bash
+EV = (P(win) * Profit) - (P(lose) * Loss)
+
+Example:
+- Initial bet (`b`) = €10
+- Probability of winning (`P(win)`) = 48.65%
+- Probability of losing (`P(lose)`) = 51.35%
+- Loss after 5 streaks = €310
+bash
+EV = (0.4865 * 10) - (0.5135 * 310) ≈ -€5.31
+
+Even with Martingale, the **expected value remains negative**, favoring the casino.
+
+---
+
+## 🤔 Philosophical Musings on Gambling and Luck
+
+### Why Are We Drawn to Martingale?
+Humans are **wired to believe in patterns**, even in systems that are entirely random. The Martingale strategy exploits:
+1. **The Gambler's Fallacy**: The false belief that past outcomes influence future ones.
+   - "After 5 losses, surely the next spin must be a win!"
+2. **Psychological Comfort**: Doubling down feels proactive, like you’re taking control of the situation.
+3. **Survivorship Bias**: People who win big using Martingale often tell their stories, while those who go broke remain silent.
+
+---
+
+### The Illusion of Control
+Martingale gives the illusion that with enough persistence, you can “force” a win. But in reality, roulette is a system governed by **randomness**, where the outcome of each spin is **independent** of the previous one.
+
+---
+
 ## 🌍 Compatibility
 
-Works seamlessly on:
-- **Windows**: Command Prompt, PowerShell, or Windows Terminal.
-- **macOS/Linux**: Any terminal.
-- **Android**: Use Termux for on-the-go gambling management.
+This tool works on virtually any modern platform:
+- **Windows**: Use Command Prompt, PowerShell, or Windows Terminal.
+- **macOS/Linux**: Compatible with all standard terminal applications.
+- **Android**: Run it on the go using Termux.
 
 ---
 
 ## 🔧 Customization
 
-Want to tweak the tool? Modify it to:
-- Experiment with different doubling factors.
-- Add realistic bet limits.
-- Simulate alternative strategies (Fibonacci, Labouchère, Kelly Criterion).
+Feel like tweaking the tool? You can:
+1. **Experiment with Alternative Strategies**:
+   - Fibonacci: A safer progression that increases bets more gradually.
+   - Kelly Criterion: Bet proportionally based on your perceived edge.
+2. **Add Realistic Constraints**:
+   - Implement table limits.
+   - Adjust starting bankrolls and bet increments.
+3. **Extend Features**:
+   - Simulate thousands of rounds to analyze long-term outcomes.
+
+---
+
+## 💬 FAQs
+
+### Q1: Can Martingale guarantee a profit?
+No. While the strategy can deliver **short-term wins**, it collapses under prolonged losing streaks or table limits.
+
+### Q2: Is this tool a simulator?
+No. This tool tracks your bets and progress during live games. It does not simulate spins or predict outcomes.
+
+### Q3: Can I use this tool for other games?
+Yes! The principles apply to any game with binary outcomes, such as coin flips or blackjack side bets.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE). Share, modify, and use responsibly.
+This project is licensed under the [MIT License](LICENSE). Feel free to modify, share, and use responsibly.
 
 ---
 
-## 💬 Feedback
+## 💬 Feedback and Contributions
 
-Have ideas for improvement? Found a bug? Submit an issue or a PR.  
-Just remember: **Martingale doesn’t beat the house, but it sure makes losing entertaining.** 😉
+Have ideas to make this tool even better? Found a bug? Open an issue or submit a pull request.  
+
+And remember: **"In gambling, math is your friend—but only if you know when to quit."** 😉
