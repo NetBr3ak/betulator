@@ -4,7 +4,6 @@ Here is the improved and more detailed `README.md` for the `betulator` repositor
 
 ![Project Logo](https://example.com/logo.png)
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/NetBr3ak/betulator/CI.yml?branch=main)](https://github.com/NetBr3ak/betulator/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **"Mathematics is the supreme judge; from its decisions, there is no appeal." — Tobias Dantzig**
