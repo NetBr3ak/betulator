@@ -1,6 +1,6 @@
 Here is the improved and more detailed `README.md` for the `betulator` repository:
 
-# 🎲 Martingale Strategy Tracker for European Roulette
+# 🎲 Betualator - Martingale Strategy Tracker for European Roulette
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
