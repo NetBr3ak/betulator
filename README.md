@@ -76,14 +76,14 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
 2. **Clone the Repository**  
    Open your terminal and execute:
    ```bash
-   git clone https://github.com/your-username/martingale-strategy-tracker.git
-   cd martingale-strategy-tracker
+   git clone https://github.com/NetBr3ak/betulator.git
+   cd betulator
    ```
 
 3. **Run the Program**  
    Start the tool by typing:
    ```bash
-   python martingale_tracker.py
+   python betulator.py
    ```
 
 4. **Follow Prompts**  
