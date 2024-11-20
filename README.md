@@ -1,6 +1,4 @@
-Here is the improved and more detailed `README.md` for the `betulator` repository:
-
-# 🎲 Betualator - Martingale Strategy Tracker for European Roulette
+# 🎲 Betulator - Martingale Strategy Tracker for European Roulette
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,21 +14,21 @@ Let’s dive into the **theory, math, and humor** behind one of the most famous 
 
 ## 📜 Table of Contents
 
-1. [What Is This Tool?](#-what-is-this-tool)
-2. [Installation](#-installation)
-3. [How to Use](#-how-to-use)
-4. [Key Features](#-key-features)
-5. [Why Martingale?](#-why-martingale)
-6. [The Science of Martingale](#-the-science-of-martingale)
-7. [Mathematical Foundations](#-mathematical-foundations)
-8. [Probabilities and Risks](#-probabilities-and-risks)
-9. [Advanced Concepts](#-advanced-concepts)
-10. [Philosophical Musings](#-philosophical-musings)
-11. [Compatibility](#-compatibility)
-12. [Customization](#-customization)
-13. [FAQs](#-faqs)
-14. [License](#-license)
-15. [Feedback and Contributions](#-feedback-and-contributions)
+1. What Is This Tool?
+2. Installation
+3. How to Use
+4. Key Features
+5. Why Martingale?
+6. The Science of Martingale
+7. Mathematical Foundations
+8. Probabilities and Risks
+9. Advanced Concepts
+10. Philosophical Musings
+11. Compatibility
+12. Customization
+13. FAQs
+14. License
+15. Feedback and Contributions
 
 ---
 
@@ -52,9 +50,7 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 
 ## 🛠️ Installation
 
-The **Martingale Strategy Tracker** works seamlessly on almost every modern operating system and device. Whether you’re on a **Windows PC**, a **Linux workstation**, or even a **mobile device**, this tool has you covered.
-
----
+The **Martingale Strategy Tracker** works seamlessly on almost every modern operating system and device. Whether you’re on a **Windows PC**, a **Linux workstation**, or even a **mobile device**, this tool is designed to be accessible and easy to use.
 
 ### ✅ Supported Platforms
 
@@ -64,8 +60,6 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
    Compatible with any standard terminal application.
 3. **Android (Alpha testing)**:  
    Run it on the go using [Termux](https://termux.dev/) or similar terminal emulators.
-
----
 
 ### 🛠️ Installation Steps
 
@@ -88,8 +82,6 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
 
 4. **Follow Prompts**  
    Enter your **initial bet** and **starting bankroll** to begin tracking your roulette gameplay.
-
----
 
 ### 📷 Visual Demonstrations
 
@@ -141,8 +133,6 @@ No   | Result | Bet    | Delta  | Balance
 4    | ✅ W   | 40.00  | +40.00 | 1020.00
 ```
 
----
-
 ### 2. 📊 Detailed Statistics
 Analyze your performance with aggregated metrics:
 - **Total bets placed**.
@@ -160,8 +150,6 @@ Example:
 📘 ROI (Return on Investment): +20.00%
 💰 Balance: 1020.00
 ```
-
----
 
 ### 3. 📈 Bankroll Chart
 Visualize the trajectory of your bankroll. A bar chart plots your balance after each round, making it easy to identify trends.  
@@ -190,19 +178,6 @@ However, beneath this simplicity lies the harsh reality of exponential growth, f
 
 ---
 
-
-# 🎲 Martingale Strategy: An Analysis
-
-## 🤔 Why the Martingale Strategy?
-
-The **Martingale strategy** is appealing due to its simplicity:
-1. **Guaranteed recovery**: A single win erases all previous losses and guarantees a profit equal to the initial bet $b$.
-2. **Ease of execution**: Simply double your bet after a loss, and reset to the initial bet after a win.
-
-However, its simplicity hides the dangers of exponential growth, finite bankrolls, and the casino's edge. Below, we explore its mathematical underpinnings and practical limitations.
-
----
-
 ## 🧠 How Does the Martingale Strategy Work?
 
 ### Key Rules
@@ -228,8 +203,6 @@ Guaranteed profit after a win:
 $$
 \text{Profit} = b
 $$
-
----
 
 ### Example: Bet Progression
 If the initial bet is $b = 10$ and you lose 3 times in a row:
@@ -352,7 +325,7 @@ $$
 Where:
 - $B$ is the bankroll,
 - $b$ is the initial bet,
-- $e$ is the house edge ($e = 0.027$ for European roulette).
+- $e$ is the house edge ($e = 0.027) for European roulette).
 
 #### Example:
 - $B = 1,000$, $b = 10$:
@@ -383,16 +356,16 @@ The negative $EV$ confirms that the house edge ensures a long-term loss.
 
 | Metric                      | Formula                          | Example ($b=10$, $L=5$)        |
 |-----------------------------|----------------------------------|--------------------------------|
-| Next Bet Size               | $b_{\text{next}} = b \cdot 2^L$              | $b_{\text{next}} = 320$            |
-| Total Wagered               | $W_{\text{total}} = b \cdot (2^L - 1)$       | $W_{\text{total}} = 310$           |
-| Probability of Losing Streak | $P(\text{loss streak}) = (19 / 37)^L$  | $P = 2.18\%$               |
-| Risk of Ruin                | $(1 - e)^{B/b}$                 | $\text{Risk} = 5.04\%$            |
+| Next Bet Size               | $b_{\text{next}} = b \cdot 2^L$  | $b_{\text{next}} = 320$        |
+| Total Wagered               | $W_{\text{total}} = b \cdot (2^L - 1)$ | $W_{\text{total}} = 310$       |
+| Probability of Losing Streak| $P(\text{loss streak}) = (19 / 37)^L$ | $P = 2.18\%$                   |
+| Risk of Ruin                | $(1 - e)^{B/b}$                 | $\text{Risk} = 5.04\%$         |
 
 ---
 
 ## ⚠️ Conclusion
 
-The **Martingale strategy** is alluring in its simplicity but flawed in execution. The exponential growth of bets, combined with finite bankrolls and casino-imposed limits, ensures its unsustainability. The mathematics demonstrates that no strategy can overcome the house edge in the long run.
+The **Martingale strategy** is alluring in its simplicity but flawed in execution. The exponential growth of bets, combined with finite bankrolls and casino-imposed limits, ensures its unsustainability.
 
 Despite its short-term appeal, Martingale remains a cautionary tale of how mathematics governs chance. 🎲
 
