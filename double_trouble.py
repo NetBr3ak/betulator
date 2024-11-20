@@ -56,84 +56,95 @@ class MartingaleStrategy:
 
         if outcome == 'w':
             self.bankroll += self.current_bet
-            self.history.append(('W', self.current_bet, self.bankroll))
+            self.history.append(('W', self.current_bet, self.current_bet, self.bankroll))
             self.total_wins += 1
             self.current_bet = self.initial_bet
             self.current_double = 0
-            sys.stdout.write(color_text(f"{EMOJI_SUCCESS} Win! Bet reset to {self.format_number(self.initial_bet)}.\n\n", SUCCESS))
+            sys.stdout.write(color_text(f"{EMOJI_SUCCESS} You won! Bet reset to {self.format_number(self.initial_bet)}.\n", SUCCESS, bold=True))
         else:
             self.bankroll -= self.current_bet
-            self.history.append(('L', self.current_bet, self.bankroll))
+            self.history.append(('L', self.current_bet, -self.current_bet, self.bankroll))
             self.total_losses += 1
             self.current_double += 1
 
             next_bet = self.current_bet * 2
             if next_bet > self.bankroll and self.bankroll > 0:
-                sys.stdout.write(color_text(f"{EMOJI_WARNING} Insufficient balance to double the bet. Bet set to {self.format_number(self.bankroll)}.\n\n", WARNING, bold=True))
                 self.current_bet = self.bankroll
+                sys.stdout.write(color_text(f"{EMOJI_WARNING} Insufficient balance to double. Bet set to {self.format_number(self.bankroll)}.\n", WARNING, bold=True))
             elif self.bankroll <= 0:
-                sys.stdout.write(color_text(f"{EMOJI_FAILURE} Balance depleted. Game over.\n\n", FAILURE, bold=True))
+                sys.stdout.write(color_text(f"{EMOJI_FAILURE} Balance depleted. Game over.\n", FAILURE, bold=True))
                 return False
             else:
                 self.current_bet = next_bet
-                sys.stdout.write(color_text(f"{EMOJI_FAILURE} Loss! Bet doubled to {self.format_number(self.current_bet)}.\n\n", FAILURE))
+                sys.stdout.write(color_text(f"{EMOJI_FAILURE} You lost! Bet doubled to {self.format_number(self.current_bet)}.\n", FAILURE, bold=True))
 
         self.bankroll_history.append(self.bankroll)
         return True
 
     def display_history(self):
+        clear_console()
         if not self.history:
             sys.stdout.write(color_text(f"\n{EMOJI_INFO} Bet history is empty.\n\n", INFO, bold=True))
             return
 
         sys.stdout.write(color_text(f"\n{EMOJI_HIST} === Bet History ===\n", HEADER, bold=True))
-        no_width, result_width, bet_width, balance_width = 4, 7, 12, 14
+        no_width, result_width, bet_width, balance_width, delta_width = 4, 7, 12, 14, 10
         header = (
             f"{color_text('No', HEADER, bold=True):<{no_width}}| "
             f"{color_text('Result', HEADER, bold=True):<{result_width}}| "
             f"{color_text('Bet', HEADER, bold=True):<{bet_width}}| "
+            f"{color_text('Delta', HEADER, bold=True):<{delta_width}}| "
             f"{color_text('Balance', HEADER, bold=True):<{balance_width}}\n"
         )
         sys.stdout.write(header)
-        sys.stdout.write(color_text("-" * (no_width + result_width + bet_width + balance_width + 9) + "\n", INFO))
+        sys.stdout.write(color_text("-" * (no_width + result_width + bet_width + delta_width + balance_width + 13) + "\n", INFO))
 
-        for i, (outcome, bet, bankroll) in enumerate(self.history, 1):
+        for i, (outcome, bet, delta, bankroll) in enumerate(self.history, 1):
             outcome_colored = color_text(f"{EMOJI_SUCCESS} W" if outcome == 'W' else f"{EMOJI_FAILURE} L", SUCCESS if outcome == 'W' else FAILURE)
+            delta_colored = color_text(f"+{self.format_number(delta)}", SUCCESS) if delta > 0 else color_text(f"{self.format_number(delta)}", FAILURE)
             line = (
                 f"{i:<{no_width}}| "
                 f"{outcome_colored:<{result_width}}| "
                 f"{color_text(self.format_number(bet), BET_BALANCE):<{bet_width}}| "
+                f"{delta_colored:<{delta_width}}| "
                 f"{color_text(self.format_number(bankroll), BET_BALANCE):<{balance_width}}\n"
             )
             sys.stdout.write(line)
 
-        sys.stdout.write(color_text("=" * (no_width + result_width + bet_width + balance_width + 9) + "\n\n", INFO))
+        sys.stdout.write(color_text("=" * (no_width + result_width + bet_width + delta_width + balance_width + 13) + "\n\n", INFO))
 
     def display_statistics(self):
+        clear_console()
         total_bets = self.total_wins + self.total_losses
         roi = ((self.bankroll - self.bankroll_initial) / self.total_bet_amount) * 100 if self.total_bet_amount else 0
+        roi_formatted = color_text(f"+{roi:.2f}%", SUCCESS) if roi > 0 else color_text(f"{roi:.2f}%", FAILURE)
 
         sys.stdout.write(color_text(f"\n{EMOJI_STATS} === Statistics ===\n", HEADER, bold=True))
         sys.stdout.write(color_text(f"{EMOJI_BANKROLL} Total bets: {total_bets}\n", WHITE))
         sys.stdout.write(color_text(f"{EMOJI_SUCCESS} Wins: {self.total_wins}\n", SUCCESS))
         sys.stdout.write(color_text(f"{EMOJI_FAILURE} Losses: {self.total_losses}\n", FAILURE))
         sys.stdout.write(color_text(f"{EMOJI_BET} Total bet amount: {self.format_number(self.total_bet_amount)}\n", BET_BALANCE))
-        sys.stdout.write(color_text(f"{EMOJI_INFO} ROI (Return on Investment): {roi:.2f}%\n", INFO))
+        sys.stdout.write(color_text(f"{EMOJI_INFO} ROI (Return on Investment): {roi_formatted}\n", INFO))
         sys.stdout.write(color_text(f"{EMOJI_BANKROLL} Balance: {self.format_number(self.bankroll)}\n", BET_BALANCE))
         sys.stdout.write(color_text("====================\n\n", INFO))
 
     def display_chart(self):
+        clear_console()
         if len(self.bankroll_history) < 2:
             sys.stdout.write(color_text(f"\n{EMOJI_INFO} Not enough data for the chart.\n\n", INFO, bold=True))
             return
 
         sys.stdout.write(color_text(f"\n{EMOJI_CHART} === Bankroll Chart ===\n", HEADER, bold=True))
-
         max_bankroll = max(self.bankroll_history)
         min_bankroll = min(self.bankroll_history)
         range_bankroll = max_bankroll - min_bankroll or 1
         chart_width = 50
         step = range_bankroll / chart_width
+
+        sys.stdout.write(color_text(f"Initial bankroll: {self.format_number(self.bankroll_initial)}\n", INFO))
+        sys.stdout.write(color_text(f"Max bankroll: {self.format_number(max_bankroll)}\n", SUCCESS))
+        sys.stdout.write(color_text(f"Min bankroll: {self.format_number(min_bankroll)}\n", FAILURE))
+        sys.stdout.write(color_text("-" * (chart_width + 15) + "\n", INFO))
 
         for bankroll in self.bankroll_history:
             bar_length = int((bankroll - min_bankroll) / step)
@@ -202,20 +213,17 @@ def main():
             sys.stdout.write(color_text(f"\n{EMOJI_EXIT} Exiting the game...\n\n", HEADER, bold=True))
             break
         elif outcome == 'h':
-            clear_console()
             bettor.display_history()
             input(color_text("Press Enter to continue...", INFO))
         elif outcome == 's':
-            clear_console()
             bettor.display_statistics()
             input(color_text("Press Enter to continue...", INFO))
         elif outcome == 'c':
-            clear_console()
             bettor.display_chart()
             input(color_text("Press Enter to continue...", INFO))
         elif outcome in ['w', 'l']:
-            if not bettor.update(outcome):
-                break
+            clear_console()
+            bettor.update(outcome)
             input(color_text("Press Enter to continue...", INFO))
         else:
             sys.stdout.write(color_text(f"{EMOJI_FAILURE} Invalid command. Try again.\n\n", FAILURE, bold=True))
