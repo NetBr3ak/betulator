@@ -1,10 +1,18 @@
+Here is the improved and more detailed `README.md` for the `betulator` repository:
+
+```markdown
 # 🎲 Martingale Strategy Tracker for European Roulette
 
-**"Mathematics is the supreme judge; from its decisions, there is no appeal." — Tobias Dantzig**  
+![Project Logo](https://example.com/logo.png)
 
-But what happens when we pit mathematics against a spinning wheel of chance? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale betting strategy** in **European roulette**.  
+[![Build Status](https://img.shields.io/github/actions/workflow/status/NetBr3ak/betulator/CI.yml?branch=main)](https://github.com/NetBr3ak/betulator/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But before you embark on your journey, remember: **Martingale is simple in concept, but dangerous in execution.** This tool won’t save you from financial ruin, but it will give you an exact record of how you got there.
+**"Mathematics is the supreme judge; from its decisions, there is no appeal." — Tobias Dantzig**
+
+But what happens when we pit mathematics against a spinning wheel of chance? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette.
+
+If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But remember: **Martingale is simple in concept, but risky in practice**.
 
 Let’s dive into the **theory, math, and humor** behind one of the most famous (and flawed) betting systems in gambling history.
 
@@ -19,6 +27,14 @@ Let’s dive into the **theory, math, and humor** behind one of the most famous 
 5. [Why Martingale?](#-why-martingale)
 6. [The Science of Martingale](#-the-science-of-martingale)
 7. [Mathematical Foundations](#-mathematical-foundations)
+8. [Probabilities and Risks](#-probabilities-and-risks)
+9. [Advanced Concepts](#-advanced-concepts)
+10. [Philosophical Musings](#-philosophical-musings)
+11. [Compatibility](#-compatibility)
+12. [Customization](#-customization)
+13. [FAQs](#-faqs)
+14. [License](#-license)
+15. [Feedback and Contributions](#-feedback-and-contributions)
 
 ---
 
@@ -44,7 +60,6 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 
 1. **Python 3.6+**  
    Ensure you have Python installed. [Download it here](https://www.python.org/).
-
 2. **Terminal Emulator for Android (Optional)**  
    Want to run this tool on mobile? Install [Termux](https://termux.dev/).
 
@@ -53,17 +68,22 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 ### Installation Steps
 
 1. **Clone the Repository**
-```bash
-git clone https://github.com/NetBr3ak/betulator.git
-cd betulator
-```
+   ```bash
+   git clone https://github.com/NetBr3ak/betulator.git
+   cd betulator
+   ```
 
-2. **Run the Program**
-```bash
-python betulator.py
-```
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Celebrate! 🎉 You’re ready to take on the house.
+3. **Run the Program**
+   ```bash
+   python betulator.py
+   ```
+
+4. Celebrate! 🎉 You’re ready to take on the house.
 
 ---
 
@@ -97,7 +117,7 @@ Keep track of every bet you place:
 - Current bankroll.
 
 Example output:
-bash
+```bash
 📜 === Bet History ===
 No   | Result | Bet    | Delta  | Balance
 --------------------------------------------
@@ -105,6 +125,7 @@ No   | Result | Bet    | Delta  | Balance
 2    | ❌ L   | 10.00  | -10.00 | 1000.00
 3    | ❌ L   | 20.00  | -20.00 |  980.00
 4    | ✅ W   | 40.00  | +40.00 | 1020.00
+```
 
 ---
 
@@ -116,7 +137,7 @@ Analyze your performance with aggregated metrics:
 - **Net profit/loss**.
 
 Example:
-bash
+```bash
 📊 === Statistics ===
 💰 Total bets: 4
 ✅ Wins: 2
@@ -124,13 +145,14 @@ bash
 🎲 Total bet amount: 80.00
 📘 ROI (Return on Investment): +20.00%
 💰 Balance: 1020.00
+```
 
 ---
 
 ### 3. 📈 Bankroll Chart
 Visualize the trajectory of your bankroll. A bar chart plots your balance after each round, making it easy to identify trends.  
 Example:
-bash
+```bash
 📈 === Bankroll Chart ===
 Initial bankroll: 1000.00
 Max bankroll: 1020.00
@@ -140,6 +162,7 @@ Min bankroll: 980.00
    980.00 | ████
   1020.00 | █████████████
 ---------------------------------------------
+```
 
 ---
 
@@ -161,8 +184,9 @@ The strategy operates on a binary principle:
 2. If you win, **reset to your initial bet size**.
 
 This progression ensures that every win results in a net profit. Mathematically, it can be summarized as:
-bash
+```bash
 Profit = b
+```
 where `b` is the initial bet.
 
 ### The Promise vs. Reality
@@ -176,137 +200,139 @@ In reality, neither of these conditions is met, making Martingale a high-risk st
 
 ## 🧮 Mathematical Foundations
 
-#### 1. Bet Progression
+### Bet Progression
 After `L` consecutive losses, the next bet is:
-bash
+```bash
 b_next = b * 2^L
+```
 
-#### 2. Total Wagered
+### Total Wagered
 The total amount wagered after `L` losses:
-bash
+```bash
 total_wagered = b * (2^L - 1)
+```
 
-#### 3. Net Profit
+### Net Profit
 If you win after `L` losses, your profit is always equal to the initial bet:
-bash
+```bash
 profit = b
+```
 
 ---
 
-## 📊 Probabilities and Risks: How Likely Are You to Survive?
+## 📊 Probabilities and Risks
 
-### 1. Winning Probability in European Roulette
-European roulette has 18 red numbers, 18 black numbers, and 1 green zero. The green zero is what gives the house its edge.  
+### Winning Probability in European Roulette
+European roulette has 18 red numbers, 18 black numbers, and 1 green zero. The green zero is what gives the house its edge.
 
 The probability of winning a bet on red or black:
-bash
+```bash
 P(win) = 18 / 37 ≈ 48.65%
+```
 
 This means **your odds of losing are slightly higher**:
-bash
+```bash
 P(lose) = 19 / 37 ≈ 51.35%
+```
 
----
-
-### 2. Losing Streak Probability
+### Losing Streak Probability
 The likelihood of encountering a losing streak increases dramatically as the number of losses (`L`) grows.
 
 Formula:
-bash
+```bash
 P(loss_streak) = (19 / 37)^L
+```
 
 Examples:
 - Probability of losing 5 times in a row:
-bash
-P(loss_streak_5) = (19 / 37)^5 ≈ 2.18%
+  ```bash
+  P(loss_streak_5) = (19 / 37)^5 ≈ 2.18%
+  ```
 
 - Probability of losing 10 times in a row:
-bash
-P(loss_streak_10) = (19 / 37)^10 ≈ 0.048% (Still possible, and very painful.)
+  ```bash
+  P(loss_streak_10) = (19 / 37)^10 ≈ 0.048%
+  ```
 
----
-
-### 3. Expected Loss: The House Edge
+### Expected Loss: The House Edge
 The **house edge** in European roulette ensures that, on average, the casino takes 2.7% of every bet you place. This is why Martingale cannot overcome the system in the long run.
 
 Formula:
-bash
+```bash
 Expected_loss = Total_wagered * House_edge
+```
 
 Example:
 - Total wagered = €1,000
 - Expected loss:
-bash
-Expected_loss = 1,000 * 0.027 = €27
+  ```bash
+  Expected_loss = 1,000 * 0.027 = €27
+  ```
 
 ---
 
 ## 🔢 Advanced Concepts
 
-### 1. **Risk of Ruin**
+### Risk of Ruin
 Risk of Ruin measures the likelihood of depleting your bankroll entirely before you achieve a win. It depends on:
 - **Starting bankroll** (`B`).
 - **Initial bet size** (`b`).
 - **House edge** (`e`).
 
 Formula:
-bash
+```bash
 Risk_of_Ruin = (1 - e)^(B / b)
+```
 
 Example:
 - Starting bankroll = €1,000
 - Initial bet = €10
 - House edge = 0.027
-bash
-Risk_of_Ruin = (1 - 0.027)^(1000 / 10) ≈ 5.04%
+  ```bash
+  Risk_of_Ruin = (1 - 0.027)^(1000 / 10) ≈ 5.04%
+  ```
 
-The smaller your bankroll relative to your initial bet, the higher the risk of ruin.
-
----
-
-### 2. **Exponential Growth of Bets**
-Martingale’s simplicity hides an inconvenient truth: your bets grow **exponentially** after each loss.  
+### Exponential Growth of Bets
+Martingale’s simplicity hides an inconvenient truth: your bets grow **exponentially** after each loss.
 
 If your starting bet is €10:
 - After 5 losses: €320
-- After 10 losses: €10,240 (Say goodbye to your life savings.)
+- After 10 losses: €10,240
 
----
-
-### 3. **Casino Table Limits**
+### Casino Table Limits
 Most casinos impose table limits to prevent Martingale abuse. Example:
 - Minimum bet: €10
 - Maximum bet: €500
 
 In this scenario:
 - Starting at €10, you hit the table limit after 5 losses.
-
-bash
-b_next = 10 * 2^5 = €320 (allowed)  
-b_next = 10 * 2^6 = €640 (not allowed)
+  ```bash
+  b_next = 10 * 2^5 = €320 (allowed)
+  b_next = 10 * 2^6 = €640 (not allowed)
+  ```
 
 If your loss streak exceeds the table limit, the strategy collapses.
 
----
-
-### 4. **Expected Value (EV)**
+### Expected Value (EV)
 The expected value of a Martingale progression combines the probabilities of winning and losing streaks:
-bash
+```bash
 EV = (P(win) * Profit) - (P(lose) * Loss)
+```
 
 Example:
 - Initial bet (`b`) = €10
 - Probability of winning (`P(win)`) = 48.65%
 - Probability of losing (`P(lose)`) = 51.35%
 - Loss after 5 streaks = €310
-bash
-EV = (0.4865 * 10) - (0.5135 * 310) ≈ -€5.31
+  ```bash
+  EV = (0.4865 * 10) - (0.5135 * 310) ≈ -€5.31
+  ```
 
 Even with Martingale, the **expected value remains negative**, favoring the casino.
 
 ---
 
-## 🤔 Philosophical Musings on Gambling and Luck
+## 🤔 Philosophical Musings
 
 ### Why Are We Drawn to Martingale?
 Humans are **wired to believe in patterns**, even in systems that are entirely random. The Martingale strategy exploits:
@@ -314,8 +340,6 @@ Humans are **wired to believe in patterns**, even in systems that are entirely r
    - "After 5 losses, surely the next spin must be a win!"
 2. **Psychological Comfort**: Doubling down feels proactive, like you’re taking control of the situation.
 3. **Survivorship Bias**: People who win big using Martingale often tell their stories, while those who go broke remain silent.
-
----
 
 ### The Illusion of Control
 Martingale gives the illusion that with enough persistence, you can “force” a win. But in reality, roulette is a system governed by **randomness**, where the outcome of each spin is **independent** of the previous one.
@@ -366,6 +390,7 @@ This project is licensed under the [MIT License](LICENSE). Feel free to modify, 
 
 ## 💬 Feedback and Contributions
 
-Have ideas to make this tool even better? Found a bug? Open an issue or submit a pull request.  
+Have ideas to make this tool even better? Found a bug? Open an issue or submit a pull request.
 
 And remember: **"In gambling, math is your friend—but only if you know when to quit."** 😉
+```
