@@ -4,9 +4,9 @@ Here is the improved and more detailed `README.md` for the `betulator` repositor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**"Mathematics is the supreme judge; from its decisions, there is no appeal." — Tobias Dantzig**
+**"Gambling is a tax on people who are bad at math."**
 
-But what happens when we pit mathematics against a spinning wheel of chance? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette.
+But what if you’re **good** at math? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette.
 
 If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But remember: **Martingale is simple in concept, but risky in practice**.
 
