@@ -52,8 +52,6 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 
 ## 🛠️ Installation
 
-## 🛠️ Installation and Compatibility
-
 The **Martingale Strategy Tracker** works seamlessly on almost every modern operating system and device. Whether you’re on a **Windows PC**, a **Linux workstation**, or even a **mobile device**, this tool has you covered.
 
 ---
