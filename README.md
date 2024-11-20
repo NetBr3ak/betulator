@@ -180,185 +180,221 @@ Min bankroll: 980.00
 
 ---
 
-## 🤔 Why Martingale?
+## 🤔 Why the Martingale Strategy?
 
-The **Martingale strategy** is seductive in its simplicity and promise:
-1. **Guaranteed recovery**: After every win, you erase all previous losses and make a profit equal to your initial bet.
-2. **Ease of execution**: Double your bet after every loss, reset to the initial bet after every win.
+The **Martingale strategy** is enticing due to its simplicity and its promise:
+1. **Guaranteed recovery**: After every win, all previous losses are erased, and you achieve a profit equal to the initial bet \( b \).
+2. **Ease of execution**: Double your bet after each loss, reset to the initial bet after each win.
 
-While the math behind Martingale is straightforward, its risks are significant. Let’s explore its inner workings.
-
----
-
-## 🧠 The Science of Martingale
-
-### How It Works
-The strategy operates on a binary principle:
-1. If you lose a bet, **double your wager** to recover previous losses.
-2. If you win, **reset to your initial bet size**.
-
-This progression ensures that every win results in a net profit. Mathematically, it can be summarized as:
-```bash
-Profit = b
-```
-where `b` is the initial bet.
-
-### The Promise vs. Reality
-The promise of Martingale is predicated on two assumptions:
-1. **Infinite bankroll**: You can double your bets indefinitely.
-2. **No table limits**: Casinos won’t cap your maximum bet size.
-
-In reality, neither of these conditions is met, making Martingale a high-risk strategy.
+However, beneath this simplicity lies the harsh reality of exponential growth, finite bankrolls, and the casino's edge. Let's delve into the mathematics and practical implications of Martingale.
 
 ---
 
-## 🧮 Mathematical Foundations
 
-### Bet Progression
-After `L` consecutive losses, the next bet is:
-```bash
-b_next = b * 2^L
-```
+# 🎲 Martingale Strategy: An Analysis
 
-### Total Wagered
-The total amount wagered after `L` losses:
-```bash
-total_wagered = b * (2^L - 1)
-```
+## 🤔 Why the Martingale Strategy?
 
-### Net Profit
-If you win after `L` losses, your profit is always equal to the initial bet:
-```bash
-profit = b
-```
+The **Martingale strategy** is appealing due to its simplicity:
+1. **Guaranteed recovery**: A single win erases all previous losses and guarantees a profit equal to the initial bet $b$.
+2. **Ease of execution**: Simply double your bet after a loss, and reset to the initial bet after a win.
+
+However, its simplicity hides the dangers of exponential growth, finite bankrolls, and the casino's edge. Below, we explore its mathematical underpinnings and practical limitations.
 
 ---
 
-## 📊 Probabilities and Risks
+## 🧠 How Does the Martingale Strategy Work?
 
-### Winning Probability in European Roulette
-European roulette has 18 red numbers, 18 black numbers, and 1 green zero. The green zero is what gives the house its edge.
+### Key Rules
+1. **Double your bet** after every loss.
+2. **Reset to the initial bet** $b$ after every win.
 
-The probability of winning a bet on red or black:
-```bash
-P(win) = 18 / 37 ≈ 48.65%
-```
+### Core Equations
 
-This means **your odds of losing are slightly higher**:
-```bash
-P(lose) = 19 / 37 ≈ 51.35%
-```
+#### Next Bet After $L$ Losses
+The bet size after $L$ losses:
+$$
+b_{\text{next}} = b \cdot 2^L
+$$
+
+#### Total Amount Wagered After $L$ Losses
+The cumulative amount wagered:
+$$
+W_{\text{total}} = b \cdot (2^L - 1)
+$$
+
+#### Profit After a Win
+Guaranteed profit after a win:
+$$
+\text{Profit} = b
+$$
+
+---
+
+### Example: Bet Progression
+If the initial bet is $b = 10$ and you lose 3 times in a row:
+- First bet: $b = 10$
+- Second bet: $b = 10 \cdot 2 = 20$
+- Third bet: $b = 20 \cdot 2 = 40$
+- Fourth bet: $b = 40 \cdot 2 = 80$
+
+The total amount wagered:
+$$
+W_{\text{total}} = 10 + 20 + 40 + 80 = 150
+$$
+
+The profit if you win the fourth bet:
+$$
+\text{Profit} = 10
+$$
+
+---
+
+## 📊 Probability and Risks
+
+### Roulette Probabilities
+In European roulette:
+- **Winning Probability**:
+$$
+P(\text{win}) = \frac{18}{37} \approx 48.65\%
+$$
+
+- **Losing Probability**:
+$$
+P(\text{lose}) = \frac{19}{37} \approx 51.35\%
+$$
 
 ### Losing Streak Probability
-The likelihood of encountering a losing streak increases dramatically as the number of losses (`L`) grows.
+The probability of losing $L$ consecutive bets:
+$$
+P(\text{loss streak}) = \left( \frac{19}{37} \right)^L
+$$
 
-Formula:
-```bash
-P(loss_streak) = (19 / 37)^L
-```
+#### Example Calculations:
+- Probability of losing 3 times in a row:
+  $$
+  P(\text{loss streak, 3}) = \left( \frac{19}{37} \right)^3 \approx 13.96\%
+  $$
 
-Examples:
 - Probability of losing 5 times in a row:
-  ```bash
-  P(loss_streak_5) = (19 / 37)^5 ≈ 2.18%
-  ```
+  $$
+  P(\text{loss streak, 5}) = \left( \frac{19}{37} \right)^5 \approx 2.18\%
+  $$
 
 - Probability of losing 10 times in a row:
-  ```bash
-  P(loss_streak_10) = (19 / 37)^10 ≈ 0.048%
-  ```
+  $$
+  P(\text{loss streak, 10}) = \left( \frac{19}{37} \right)^{10} \approx 0.048\%
+  $$
 
-### Expected Loss: The House Edge
-The **house edge** in European roulette ensures that, on average, the casino takes 2.7% of every bet you place. This is why Martingale cannot overcome the system in the long run.
+---
 
-Formula:
-```bash
-Expected_loss = Total_wagered * House_edge
-```
+## 🧮 Financial Implications
 
-Example:
-- Total wagered = €1,000
-- Expected loss:
-  ```bash
-  Expected_loss = 1,000 * 0.027 = €27
-  ```
+### Exponential Growth of Bets
+The size of bets grows exponentially after consecutive losses:
+$$
+b_{\text{next}} = b \cdot 2^L
+$$
+
+#### Example:
+- Initial bet: $b = 10$
+- After 5 losses:
+  $$
+  b_{\text{next}} = 10 \cdot 2^5 = 320
+  $$
+- After 10 losses:
+  $$
+  b_{\text{next}} = 10 \cdot 2^{10} = 10,240
+  $$
+
+### Total Amount Wagered
+The total amount wagered after $L$ losses:
+$$
+W_{\text{total}} = b \cdot (2^L - 1)
+$$
+
+#### Example:
+- $b = 10$, $L = 10$:
+  $$
+  W_{\text{total}} = 10 \cdot (2^{10} - 1) = 10,230
+  $$
+
+---
+
+## 🏦 Casino Constraints
+
+### Table Limits
+Most casinos impose limits to prevent Martingale abuse. For example:
+- **Minimum Bet**: $b_{\text{min}} = 10$
+- **Maximum Bet**: $b_{\text{max}} = 500$
+
+The maximum streak you can sustain before hitting the limit:
+$$
+L_{\text{max}} = \log_2\left(\frac{b_{\text{max}}}{b_{\text{min}}}\right)
+$$
+
+#### Example:
+- $b_{\text{min}} = 10$, $b_{\text{max}} = 500$:
+  $$
+  L_{\text{max}} = \log_2\left(\frac{500}{10}\right) = 5.64
+  $$
+Thus, you can only double up 5 times before exceeding the table limit.
 
 ---
 
 ## 🔢 Advanced Concepts
 
 ### Risk of Ruin
-Risk of Ruin measures the likelihood of depleting your bankroll entirely before you achieve a win. It depends on:
-- **Starting bankroll** (`B`).
-- **Initial bet size** (`b`).
-- **House edge** (`e`).
+The **Risk of Ruin** measures the probability of losing your entire bankroll before achieving a win:
+$$
+\text{Risk of Ruin} = (1 - e)^{\frac{B}{b}}
+$$
+Where:
+- $B$ is the bankroll,
+- $b$ is the initial bet,
+- $e$ is the house edge ($e = 0.027$ for European roulette).
 
-Formula:
-```bash
-Risk_of_Ruin = (1 - e)^(B / b)
-```
-
-Example:
-- Starting bankroll = €1,000
-- Initial bet = €10
-- House edge = 0.027
-  ```bash
-  Risk_of_Ruin = (1 - 0.027)^(1000 / 10) ≈ 5.04%
-  ```
-
-### Exponential Growth of Bets
-Martingale’s simplicity hides an inconvenient truth: your bets grow **exponentially** after each loss.
-
-If your starting bet is €10:
-- After 5 losses: €320
-- After 10 losses: €10,240
-
-### Casino Table Limits
-Most casinos impose table limits to prevent Martingale abuse. Example:
-- Minimum bet: €10
-- Maximum bet: €500
-
-In this scenario:
-- Starting at €10, you hit the table limit after 5 losses.
-  ```bash
-  b_next = 10 * 2^5 = €320 (allowed)
-  b_next = 10 * 2^6 = €640 (not allowed)
-  ```
-
-If your loss streak exceeds the table limit, the strategy collapses.
+#### Example:
+- $B = 1,000$, $b = 10$:
+  $$
+  \text{Risk of Ruin} = (1 - 0.027)^{\frac{1000}{10}} \approx 5.04\%
+  $$
 
 ### Expected Value (EV)
-The expected value of a Martingale progression combines the probabilities of winning and losing streaks:
-```bash
-EV = (P(win) * Profit) - (P(lose) * Loss)
-```
+The **Expected Value** combines probabilities and outcomes:
+$$
+EV = P(\text{win}) \cdot \text{Profit} - P(\text{lose}) \cdot \text{Loss}
+$$
 
-Example:
-- Initial bet (`b`) = €10
-- Probability of winning (`P(win)`) = 48.65%
-- Probability of losing (`P(lose)`) = 51.35%
-- Loss after 5 streaks = €310
-  ```bash
-  EV = (0.4865 * 10) - (0.5135 * 310) ≈ -€5.31
-  ```
+#### Example:
+- $b = 10$,
+- $P(\text{win}) = 48.65\%$,
+- $P(\text{lose}) = 51.35\%$,
+- Total loss after 5 streaks $W_{\text{total}} = 310$:
+  $$
+  EV = (0.4865 \cdot 10) - (0.5135 \cdot 310) \approx -5.31
+  $$
 
-Even with Martingale, the **expected value remains negative**, favoring the casino.
+The negative $EV$ confirms that the house edge ensures a long-term loss.
+
+---
+
+## 📊 Summary Table
+
+| Metric                      | Formula                          | Example ($b=10$, $L=5$)        |
+|-----------------------------|----------------------------------|--------------------------------|
+| Next Bet Size               | $b_{\text{next}} = b \cdot 2^L$              | $b_{\text{next}} = 320$            |
+| Total Wagered               | $W_{\text{total}} = b \cdot (2^L - 1)$       | $W_{\text{total}} = 310$           |
+| Probability of Losing Streak | $P(\text{loss streak}) = (19 / 37)^L$  | $P = 2.18\%$               |
+| Risk of Ruin                | $(1 - e)^{B/b}$                 | $\text{Risk} = 5.04\%$            |
 
 ---
 
-## 🤔 Philosophical Musings
+## ⚠️ Conclusion
 
-### Why Are We Drawn to Martingale?
-Humans are **wired to believe in patterns**, even in systems that are entirely random. The Martingale strategy exploits:
-1. **The Gambler's Fallacy**: The false belief that past outcomes influence future ones.
-   - "After 5 losses, surely the next spin must be a win!"
-2. **Psychological Comfort**: Doubling down feels proactive, like you’re taking control of the situation.
-3. **Survivorship Bias**: People who win big using Martingale often tell their stories, while those who go broke remain silent.
+The **Martingale strategy** is alluring in its simplicity but flawed in execution. The exponential growth of bets, combined with finite bankrolls and casino-imposed limits, ensures its unsustainability. The mathematics demonstrates that no strategy can overcome the house edge in the long run.
 
-### The Illusion of Control
-Martingale gives the illusion that with enough persistence, you can “force” a win. But in reality, roulette is a system governed by **randomness**, where the outcome of each spin is **independent** of the previous one.
-
----
+Despite its short-term appeal, Martingale remains a cautionary tale of how mathematics governs chance. 🎲
 
 ## 🌍 Compatibility
 
