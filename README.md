@@ -94,10 +94,10 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
 ### 📷 Visual Demonstrations
 
 #### Example on Windows Terminal
-<img src="images/windows_terminal_example.png" alt="Windows Terminal Example" width="600">
+<img src="images/windows_terminal_example.png" alt="Windows Terminal Example" width="800">
 
 #### Example on Android (Termux)
-<img src="images/termux_terminal_example.png" alt="Termux Example" width="600">
+<img src="images/termux_terminal_example.png" alt="Termux Example" width="300">
 
 ---
 
