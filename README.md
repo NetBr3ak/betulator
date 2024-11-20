@@ -1,4 +1,4 @@
-# 🎲 Betulator - Martingale Strategy Tracker for European Roulette
+### 🎲 Betulator - Martingale Strategy Tracker for European Roulette
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -14,21 +14,21 @@ Let’s dive into the **theory, math, and humor** behind one of the most famous 
 
 ## 📜 Table of Contents
 
-1. What Is This Tool?
-2. Installation
-3. How to Use
-4. Key Features
-5. Why Martingale?
-6. The Science of Martingale
-7. Mathematical Foundations
-8. Probabilities and Risks
-9. Advanced Concepts
-10. Philosophical Musings
-11. Compatibility
-12. Customization
-13. FAQs
-14. License
-15. Feedback and Contributions
+1. [What Is This Tool?](#-what-is-this-tool)
+2. [Installation](#-installation)
+3. [How to Use](#-how-to-use)
+4. [Key Features](#-key-features)
+5. [Why Martingale?](#-why-the-martingale-strategy)
+6. [How the Martingale Strategy Works](#-how-does-the-martingale-strategy-work)
+7. [Probability and Risks](#-probability-and-risks)
+8. [Financial Implications](#-financial-implications)
+9. [Casino Constraints](#-casino-constraints)
+10. [Advanced Concepts](#-advanced-concepts)
+11. [Compatibility](#-compatibility)
+12. [Customization](#-customization)
+13. [FAQs](#-faqs)
+14. [License](#-license)
+15. [Feedback and Contributions](#-feedback-and-contributions)
 
 ---
 
@@ -49,8 +49,6 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 ---
 
 ## 🛠️ Installation
-
-The **Martingale Strategy Tracker** works seamlessly on almost every modern operating system and device. Whether you’re on a **Windows PC**, a **Linux workstation**, or even a **mobile device**, this tool is designed to be accessible and easy to use.
 
 ### ✅ Supported Platforms
 
@@ -74,13 +72,19 @@ The **Martingale Strategy Tracker** works seamlessly on almost every modern oper
    cd betulator
    ```
 
-3. **Run the Program**  
+3. **Install Dependencies**  
+   Run the following command to install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Program**  
    Start the tool by typing:
    ```bash
    python betulator.py
    ```
 
-4. **Follow Prompts**  
+5. **Follow Prompts**  
    Enter your **initial bet** and **starting bankroll** to begin tracking your roulette gameplay.
 
 ### 📷 Visual Demonstrations
@@ -182,17 +186,17 @@ However, beneath this simplicity lies the harsh reality of exponential growth, f
 
 ### Key Rules
 1. **Double your bet** after every loss.
-2. **Reset to the initial bet** $b$ after every win.
+2. **Reset to the initial bet** \( b \) after every win.
 
 ### Core Equations
 
-#### Next Bet After $L$ Losses
-The bet size after $L$ losses:
+#### Next Bet After \( L \) Losses
+The bet size after \( L \) losses:
 $$
 b_{\text{next}} = b \cdot 2^L
 $$
 
-#### Total Amount Wagered After $L$ Losses
+#### Total Amount Wagered After \( L \) Losses
 The cumulative amount wagered:
 $$
 W_{\text{total}} = b \cdot (2^L - 1)
@@ -205,11 +209,11 @@ $$
 $$
 
 ### Example: Bet Progression
-If the initial bet is $b = 10$ and you lose 3 times in a row:
-- First bet: $b = 10$
-- Second bet: $b = 10 \cdot 2 = 20$
-- Third bet: $b = 20 \cdot 2 = 40$
-- Fourth bet: $b = 40 \cdot 2 = 80$
+If the initial bet is \( b = 10 \) and you lose 3 times in a row:
+- First bet: \( b = 10 \)
+- Second bet: \( b = 10 \cdot 2 = 20 \)
+- Third bet: \( b = 20 \cdot 2 = 40 \)
+- Fourth bet: \( b = 40 \cdot 2 = 80 \)
 
 The total amount wagered:
 $$
@@ -238,7 +242,7 @@ P(\text{lose}) = \frac{19}{37} \approx 51.35\%
 $$
 
 ### Losing Streak Probability
-The probability of losing $L$ consecutive bets:
+The probability of losing \( L \) consecutive bets:
 $$
 P(\text{loss streak}) = \left( \frac{19}{37} \right)^L
 $$
@@ -270,7 +274,7 @@ b_{\text{next}} = b \cdot 2^L
 $$
 
 #### Example:
-- Initial bet: $b = 10$
+- Initial bet: \( b = 10 \)
 - After 5 losses:
   $$
   b_{\text{next}} = 10 \cdot 2^5 = 320
@@ -281,13 +285,13 @@ $$
   $$
 
 ### Total Amount Wagered
-The total amount wagered after $L$ losses:
+The total amount wagered after \( L \) losses:
 $$
 W_{\text{total}} = b \cdot (2^L - 1)
 $$
 
 #### Example:
-- $b = 10$, $L = 10$:
+- \( b = 10 \), \( L = 10 \):
   $$
   W_{\text{total}} = 10 \cdot (2^{10} - 1) = 10,230
   $$
@@ -298,8 +302,8 @@ $$
 
 ### Table Limits
 Most casinos impose limits to prevent Martingale abuse. For example:
-- **Minimum Bet**: $b_{\text{min}} = 10$
-- **Maximum Bet**: $b_{\text{max}} = 500$
+- **Minimum Bet**: \( b_{\text{min}} = 10 \)
+- **Maximum Bet**: \( b_{\text{max}} = 500 \)
 
 The maximum streak you can sustain before hitting the limit:
 $$
@@ -307,7 +311,7 @@ L_{\text{max}} = \log_2\left(\frac{b_{\text{max}}}{b_{\text{min}}}\right)
 $$
 
 #### Example:
-- $b_{\text{min}} = 10$, $b_{\text{max}} = 500$:
+- \( b_{\text{min}} = 10 \), \( b_{\text{max}} = 500 \):
   $$
   L_{\text{max}} = \log_2\left(\frac{500}{10}\right) = 5.64
   $$
@@ -323,12 +327,12 @@ $$
 \text{Risk of Ruin} = (1 - e)^{\frac{B}{b}}
 $$
 Where:
-- $B$ is the bankroll,
-- $b$ is the initial bet,
-- $e$ is the house edge ($e = 0.027) for European roulette).
+- \( B \) is the bankroll,
+- \( b \) is the initial bet,
+- \( e \) is the house edge (\( e = 0.027 \) for European roulette).
 
 #### Example:
-- $B = 1,000$, $b = 10$:
+- \( B = 1,000 \), \( b = 10 \):
   $$
   \text{Risk of Ruin} = (1 - 0.027)^{\frac{1000}{10}} \approx 5.04\%
   $$
@@ -340,26 +344,26 @@ EV = P(\text{win}) \cdot \text{Profit} - P(\text{lose}) \cdot \text{Loss}
 $$
 
 #### Example:
-- $b = 10$,
-- $P(\text{win}) = 48.65\%$,
-- $P(\text{lose}) = 51.35\%$,
-- Total loss after 5 streaks $W_{\text{total}} = 310$:
+- \( b = 10 \),
+- \( P(\text{win}) = 48.65\% \),
+- \( P(\text{lose}) = 51.35\% \),
+- Total loss after 5 streaks \( W_{\text{total}} = 310 \):
   $$
   EV = (0.4865 \cdot 10) - (0.5135 \cdot 310) \approx -5.31
   $$
 
-The negative $EV$ confirms that the house edge ensures a long-term loss.
+The negative \( EV \) confirms that the house edge ensures a long-term loss.
 
 ---
 
 ## 📊 Summary Table
 
-| Metric                      | Formula                          | Example ($b=10$, $L=5$)        |
+| Metric                      | Formula                          | Example (\( b = 10 \), \( L = 5 \))        |
 |-----------------------------|----------------------------------|--------------------------------|
-| Next Bet Size               | $b_{\text{next}} = b \cdot 2^L$  | $b_{\text{next}} = 320$        |
-| Total Wagered               | $W_{\text{total}} = b \cdot (2^L - 1)$ | $W_{\text{total}} = 310$       |
-| Probability of Losing Streak| $P(\text{loss streak}) = (19 / 37)^L$ | $P = 2.18\%$                   |
-| Risk of Ruin                | $(1 - e)^{B/b}$                 | $\text{Risk} = 5.04\%$         |
+| Next Bet Size               | \( b_{\text{next}} = b \cdot 2^L \)  | \( b_{\text{next}} = 320 \)        |
+| Total Wagered               | \( W_{\text{total}} = b \cdot (2^L - 1) \) | \( W_{\text{total}} = 310 \)       |
+| Probability of Losing Streak| \( P(\text{loss streak}) = (19 / 37)^L \) | \( P = 2.18\% \)                   |
+| Risk of Ruin                | \( (1 - e)^{B/b} \)                 | \( \text{Risk} = 5.04\% \)         |
 
 ---
 
@@ -368,15 +372,6 @@ The negative $EV$ confirms that the house edge ensures a long-term loss.
 The **Martingale strategy** is alluring in its simplicity but flawed in execution. The exponential growth of bets, combined with finite bankrolls and casino-imposed limits, ensures its unsustainability.
 
 Despite its short-term appeal, Martingale remains a cautionary tale of how mathematics governs chance. 🎲
-
-## 🌍 Compatibility
-
-This tool works on virtually any modern platform:
-- **Windows**: Use Command Prompt, PowerShell, or Windows Terminal.
-- **macOS/Linux**: Compatible with all standard terminal applications.
-- **Android**: Run it on the go using Termux.
-
----
 
 ## 🔧 Customization
 
@@ -415,4 +410,6 @@ This project is licensed under the [MIT License](LICENSE). Feel free to modify, 
 
 Have ideas to make this tool even better? Found a bug? Open an issue or submit a pull request.
 
-And remember: **"In gambling, math is your friend—but only if you know when to quit."** 😉
+And remember: **"In gambling, math is your friend—but only if you know when to quit."**
+
+---
