@@ -20,14 +20,14 @@ Betulator is a Python-based simulation tool that lets you explore the **Martinga
 ## 🚀 **How to Use**
 
 ### 1. Clone the Repo
-bash
+```bash
 git clone https://github.com/YourUsername/Betulator.git
 cd Betulator
-
+```
 ### 2. Run the Program
-bash
+```bash
 python betulator.py
-
+```
 ### 3. Explore the Simulation
 - Enter your starting bankroll and initial bet.
 - Simulate rounds:
