@@ -250,7 +250,7 @@ def main():
         sys.stdout.write(color_text(f"{EMOJI_BANKROLL} Balance: {bettor.format_number(bettor.bankroll)}\n", BET_BALANCE))
         sys.stdout.write(color_text(f"{EMOJI_BET} Current bet: {bettor.format_number(bettor.current_bet)}\n\n", BET_BALANCE))
 
-        sys.stdout.write(color_text(f"{EMOJI_INFO} Enter outcome ('w', 'l'), 'h', 's', 'c', 'e': ", INFO))
+        sys.stdout.write(color_text(f"{EMOJI_INFO} Enter outcome 'w', 'l', 'h', 's', 'c', 'e': ", INFO))
         sys.stdout.flush()
         outcome = sys.stdin.readline().strip().lower()
 
