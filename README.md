@@ -52,29 +52,54 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
 
 ## 🛠️ Installation
 
-### Prerequisites
+## 🛠️ Installation and Compatibility
 
-1. **Python 3.6+**  
-   Ensure you have Python installed. [Download it here](https://www.python.org/).
-2. **Terminal Emulator for Android (Optional)**  
-   Want to run this tool on mobile? Install [Termux](https://termux.dev/).
+The **Martingale Strategy Tracker** works seamlessly on almost every modern operating system and device. Whether you’re on a **Windows PC**, a **Linux workstation**, or even a **mobile device**, this tool has you covered.
 
 ---
 
-### Installation Steps
+### ✅ Supported Platforms
 
-1. **Clone the Repository**
+1. **Windows**:  
+   Works flawlessly on Command Prompt, PowerShell, or Windows Terminal.
+2. **macOS/Linux**:  
+   Compatible with any standard terminal application.
+3. **Android**:  
+   Run it on the go using [Termux](https://termux.dev/) or similar terminal emulators.
+
+---
+
+### 🛠️ Installation Steps
+
+1. **Install Python 3.6+**  
+   - Download Python from the [official website](https://www.python.org/).
+   - Ensure `python` and `pip` are available in your terminal.
+
+2. **Clone the Repository**  
+   Open your terminal and execute:
    ```bash
-   git clone https://github.com/NetBr3ak/betulator.git
-   cd betulator
+   git clone https://github.com/your-username/martingale-strategy-tracker.git
+   cd martingale-strategy-tracker
    ```
 
-2. **Run the Program**
+3. **Run the Program**  
+   Start the tool by typing:
    ```bash
-   python betulator.py
+   python martingale_tracker.py
    ```
 
-3. Celebrate! 🎉 You’re ready to take on the house.
+4. **Follow Prompts**  
+   Enter your **initial bet** and **starting bankroll** to begin tracking your roulette gameplay.
+
+---
+
+### 📷 Visual Demonstrations
+
+#### Example on Windows Terminal
+![Windows Terminal Example](images/windows_terminal_example.png)
+
+#### Example on Android (Termux)
+![Termux Example](images/termux_terminal_example.png)
 
 ---
 
