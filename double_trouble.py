@@ -26,35 +26,51 @@ EMOJI_BET = "🎲"
 EMOJI_BANKROLL = "💰"
 
 def color_text(text, color, bold=False):
+    """
+    Adds color and optional bold styling to text for terminal output.
+    """
     if bold:
         return f"{BOLD}{color}{text}{RESET}"
     return f"{color}{text}{RESET}"
 
 def clear_console():
+    """
+    Clears the terminal screen to maintain clean output.
+    """
     print("\033[2J\033[H", end='')
 
 class MartingaleStrategy:
     def __init__(self, initial_bet, bankroll):
+        """
+        Initializes the Martingale strategy with the given initial bet and bankroll.
+        Tracks historical data, win/loss statistics, and bankroll changes.
+        """
         self.initial_bet = initial_bet
         self.current_bet = initial_bet
         self.bankroll = bankroll
         self.bankroll_initial = bankroll
         self.current_double = 0
-        self.history = []
+        self.history = []  # Tracks each round's outcome, bet, delta, and resulting balance.
         self.total_wins = 0
         self.total_losses = 0
         self.total_bet_amount = 0
-        self.bankroll_history = [bankroll]
+        self.bankroll_history = [bankroll]  # Keeps a history of the bankroll for chart generation.
 
     def update(self, outcome):
+        """
+        Updates the game state based on the outcome ('w' for win, 'l' for loss).
+        Handles bet adjustments, bankroll updates, and tracking win/loss stats.
+        """
         outcome = outcome.lower()
         if outcome not in ['w', 'l']:
             sys.stdout.write(color_text(f"{EMOJI_FAILURE} Invalid outcome. Use 'w' (Win) or 'l' (Loss).\n\n", FAILURE, bold=True))
             return False
 
+        # Track the total amount bet so far
         self.total_bet_amount += self.current_bet
 
         if outcome == 'w':
+            # Win case: Add current bet to bankroll, reset to initial bet
             self.bankroll += self.current_bet
             self.history.append(('W', self.current_bet, self.current_bet, self.bankroll))
             self.total_wins += 1
@@ -62,11 +78,13 @@ class MartingaleStrategy:
             self.current_double = 0
             sys.stdout.write(color_text(f"{EMOJI_SUCCESS} You won! Bet reset to {self.format_number(self.initial_bet)}.\n", SUCCESS, bold=True))
         else:
+            # Loss case: Subtract current bet from bankroll, double the bet if possible
             self.bankroll -= self.current_bet
             self.history.append(('L', self.current_bet, -self.current_bet, self.bankroll))
             self.total_losses += 1
             self.current_double += 1
 
+            # Adjust the next bet or end the game if out of balance
             next_bet = self.current_bet * 2
             if next_bet > self.bankroll and self.bankroll > 0:
                 self.current_bet = self.bankroll
@@ -78,15 +96,20 @@ class MartingaleStrategy:
                 self.current_bet = next_bet
                 sys.stdout.write(color_text(f"{EMOJI_FAILURE} You lost! Bet doubled to {self.format_number(self.current_bet)}.\n", FAILURE, bold=True))
 
+        # Append the new bankroll value to the history for charting
         self.bankroll_history.append(self.bankroll)
         return True
 
     def display_history(self):
+        """
+        Displays the detailed history of all bets, including results, bets, deltas, and balance.
+        """
         clear_console()
         if not self.history:
             sys.stdout.write(color_text(f"\n{EMOJI_INFO} Bet history is empty.\n\n", INFO, bold=True))
             return
 
+        # Format and print the header
         sys.stdout.write(color_text(f"\n{EMOJI_HIST} === Bet History ===\n", HEADER, bold=True))
         no_width, result_width, bet_width, balance_width, delta_width = 4, 7, 12, 14, 10
         header = (
@@ -99,6 +122,7 @@ class MartingaleStrategy:
         sys.stdout.write(header)
         sys.stdout.write(color_text("-" * (no_width + result_width + bet_width + delta_width + balance_width + 13) + "\n", INFO))
 
+        # Print each entry in the history
         for i, (outcome, bet, delta, bankroll) in enumerate(self.history, 1):
             outcome_colored = color_text(f"{EMOJI_SUCCESS} W" if outcome == 'W' else f"{EMOJI_FAILURE} L", SUCCESS if outcome == 'W' else FAILURE)
             delta_colored = color_text(f"+{self.format_number(delta)}", SUCCESS) if delta > 0 else color_text(f"{self.format_number(delta)}", FAILURE)
@@ -114,6 +138,9 @@ class MartingaleStrategy:
         sys.stdout.write(color_text("=" * (no_width + result_width + bet_width + delta_width + balance_width + 13) + "\n\n", INFO))
 
     def display_statistics(self):
+        """
+        Displays summary statistics of the game, including total bets, wins/losses, ROI, and balance.
+        """
         clear_console()
         total_bets = self.total_wins + self.total_losses
         roi = ((self.bankroll - self.bankroll_initial) / self.total_bet_amount) * 100 if self.total_bet_amount else 0
@@ -129,6 +156,9 @@ class MartingaleStrategy:
         sys.stdout.write(color_text("====================\n\n", INFO))
 
     def display_chart(self):
+        """
+        Displays a chart of bankroll changes over time as a bar graph.
+        """
         clear_console()
         if len(self.bankroll_history) < 2:
             sys.stdout.write(color_text(f"\n{EMOJI_INFO} Not enough data for the chart.\n\n", INFO, bold=True))
@@ -158,9 +188,15 @@ class MartingaleStrategy:
 
     @staticmethod
     def format_number(value):
+        """
+        Formats numbers for consistent and readable output (e.g., "1 000.00").
+        """
         return f"{value:,.2f}".replace(",", " ")
 
 def get_positive_float(prompt):
+    """
+    Prompts the user for a positive float value. Retries on invalid input.
+    """
     while True:
         try:
             sys.stdout.write(color_text(prompt, BET_BALANCE))
@@ -175,10 +211,16 @@ def get_positive_float(prompt):
             sys.stdout.write(color_text(f"{EMOJI_FAILURE} Invalid value. Please try again.\n\n", FAILURE, bold=True))
 
 def display_header():
+    """
+    Displays the main program header.
+    """
     header_text = "Martingale Strategy for European Roulette"
     sys.stdout.write(color_text(header_text + "\n\n", HEADER, bold=True))
 
 def display_controls():
+    """
+    Displays available user controls.
+    """
     sys.stdout.write(color_text(f"{EMOJI_SUCCESS} Enter 'w' (Win)\n", SUCCESS))
     sys.stdout.write(color_text(f"{EMOJI_FAILURE} Enter 'l' (Loss)\n", FAILURE))
     sys.stdout.write(color_text(f"{EMOJI_HIST} Enter 'h' (History)\n", INFO))
@@ -187,6 +229,9 @@ def display_controls():
     sys.stdout.write(color_text(f"{EMOJI_EXIT} Enter 'e' (Exit)\n\n", WHITE))
 
 def main():
+    """
+    Main program loop for user interaction.
+    """
     clear_console()
     display_header()
 
@@ -222,7 +267,7 @@ def main():
             bettor.display_chart()
             input(color_text("Press Enter to continue...", INFO))
         elif outcome in ['w', 'l']:
-            clear_console()
+            clear_console()  # Ensure the screen is refreshed after update
             bettor.update(outcome)
             input(color_text("Press Enter to continue...", INFO))
         else:
