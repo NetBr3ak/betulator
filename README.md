@@ -4,7 +4,7 @@
 
 **"Gambling is a tax on people who are bad at math."**
 
-But what if you’re **good** at math? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette.
+But what if you’re **good** at math? Welcome to the **Martingale Strategy Tracker**—a tool designed to help you meticulously apply and monitor the **Martingale Strategy** in live European roulette[...]
 
 If you’ve ever thought *"The house edge can’t defeat me if I double my bets!"*, this tracker is your companion. But remember: **Martingale is simple in concept, but risky in practice**.
 
@@ -353,7 +353,7 @@ The negative \( EV \) confirms that the house edge ensures a long-term loss.
 
 | Metric                      | Formula                          | Example (\( b = 10 \), \( L = 5 \))        |
 |-----------------------------|----------------------------------|--------------------------------|
-| Next Bet Size               | \( b_{\text{next}} = b \cdot 2^L \)  | \( b_{\text{next}} = 320 \)        |
+| Next Bet Size               | \( b_{\text{next}} = b \cdot 2^L \) | \( b_{\text{next}} = 320 \)        |
 | Total Wagered               | \( W_{\text{total}} = b \cdot (2^L - 1) \) | \( W_{\text{total}} = 310 \)       |
 | Probability of Losing Streak| \( P(\text{loss streak}) = (19 / 37)^L \) | \( P = 2.18\% \)                   |
 | Risk of Ruin                | \( (1 - e)^{B/b} \)                 | \( \text{Risk} = 5.04\% \)         |
