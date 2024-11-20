@@ -71,19 +71,13 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
    cd betulator
    ```
 
-3. **Install Dependencies**  
-   Run the following command to install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Program**  
+3. **Run the Program**  
    Start the tool by typing:
    ```bash
    python betulator.py
    ```
 
-5. **Follow Prompts**  
+4. **Follow Prompts**  
    Enter your **initial bet** and **starting bankroll** to begin tracking your roulette gameplay.
 
 ### 📷 Visual Demonstrations
