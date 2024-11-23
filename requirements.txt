@@ -1,0 +1,17 @@
+# Core functionality
+numpy>=2.1.3             # Numerical computations
+pillow>=11.0.0           # Image processing (if needed)
+
+# Terminal UI and text effects
+asciimatics>=1.15.0      # ASCII-based animations
+pyfiglet>=1.0.2          # ASCII art text generation
+rich>=13.9.4             # Modern terminal output with colors and formatting
+
+# Markdown rendering
+markdown-it-py>=3.0.0    # Markdown parsing
+mdurl>=0.1.2             # URL parsing for markdown-it-py
+
+# Terminal compatibility and rendering
+pywin32>=308             # Windows-specific compatibility
+wcwidth>=0.2.13          # Wide-character support for terminal
+Pygments>=2.18.0         # Syntax highlighting
