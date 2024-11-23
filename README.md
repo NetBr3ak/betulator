@@ -17,17 +17,16 @@ Let’s dive into the **theory, math, and humor** behind one of the most famous 
 1. [What Is This Tool?](#-what-is-this-tool)
 2. [Installation](#-installation)
 3. [How to Use](#-how-to-use)
-4. [Key Features](#-key-features)
-5. [Why Martingale?](#-why-the-martingale-strategy)
-6. [How the Martingale Strategy Works](#-how-does-the-martingale-strategy-work)
-7. [Probability and Risks](#-probability-and-risks)
-8. [Financial Implications](#-financial-implications)
-9. [Casino Constraints](#-casino-constraints)
-10. [Advanced Concepts](#-advanced-concepts)
-11. [Customization](#-customization)
-12. [FAQs](#-faqs)
-13. [License](#-license)
-14. [Feedback and Contributions](#-feedback-and-contributions)
+4. [Why Martingale?](#-why-the-martingale-strategy)
+5. [How the Martingale Strategy Works](#-how-does-the-martingale-strategy-work)
+6. [Probability and Risks](#-probability-and-risks)
+7. [Financial Implications](#-financial-implications)
+8. [Casino Constraints](#-casino-constraints)
+9. [Advanced Concepts](#-advanced-concepts)
+10. [Customization](#-customization)
+11. [FAQs](#-faqs)
+12. [License](#-license)
+13. [Feedback and Contributions](#-feedback-and-contributions)
 
 ---
 
@@ -39,11 +38,9 @@ It is designed to:
   - Automatically calculates your next bet size based on the Martingale progression.
   - Keeps an organized record of wins, losses, and bankroll changes.
 - **Visualize your performance**:
-  - Generates intuitive charts to display the rise and fall of your bankroll.
+  - Displays detailed statistics and summaries.
 - **Analyze your strategy**:
-  - Provides detailed statistics, such as ROI, win/loss ratios, and total wagers.
-
-If the Martingale strategy is your sword, this tool is your scabbard, sharpening and organizing your approach.
+  - Provides ROI, win/loss ratios, and detailed history.
 
 ---
 
@@ -55,14 +52,11 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
    Works flawlessly on Command Prompt, PowerShell, or Windows Terminal.
 2. **macOS/Linux**:  
    Compatible with any standard terminal application.
-3. **Android (Alpha testing)**:  
-   Run it on the go using [Termux](https://termux.dev/) or similar terminal emulators.
 
 ### 🛠️ Installation Steps
 
 1. **Install Python 3.6+**  
-   - Download Python from the [official website](https://www.python.org/).
-   - Ensure `python` and `pip` are available in your terminal.
+   Download Python from the [official website](https://www.python.org/).
 
 2. **Clone the Repository**  
    Open your terminal and execute:
@@ -71,97 +65,35 @@ If the Martingale strategy is your sword, this tool is your scabbard, sharpening
    cd betulator
    ```
 
-3. **Run the Program**  
-   Start the tool by typing:
+3. **Install Dependencies**  
+   Install the required libraries:
    ```bash
-   python betulator.py
+   pip install -r requirements.txt
    ```
 
-4. **Follow Prompts**  
-   Enter your **initial bet** and **starting bankroll** to begin tracking your roulette gameplay.
-
-### 📷 Visual Demonstrations
-
-#### Example on Windows Terminal
-<img src="images/windows_terminal_example.png" alt="Windows Terminal Example" width="800">
-
-#### Example on Android (Termux)
-<img src="images/termux_terminal_example.png" alt="Termux Example" width="300">
+4. **Run the Program**  
+   Start the tool by typing:
+   ```bash
+   python main.py
+   ```
 
 ---
 
 ## 🎮 How to Use
 
 ### Step 1: Launch the Tool
-Run the program using the command above. You’ll be greeted with prompts to enter your **initial bet size** and **starting bankroll**.
+Run the program using `python main.py`. Input your **initial bet size** and **starting bankroll**.
 
 ### Step 2: Play Roulette
 Input the outcome of each round:
 - **`w`**: Record a win.
 - **`l`**: Record a loss.
 
-### Step 3: View Progress
-Use these commands during your session:
+### Step 3: Explore Features
+Use the following commands during your session:
 - **`h`**: View detailed bet history.
-- **`s`**: Check your statistics.
-- **`c`**: See a visual chart of your bankroll over time.
+- **`s`**: Check statistics.
 - **`e`**: Exit the program.
-
----
-
-## 🌟 Key Features
-
-### 1. 📜 Bet History
-Keep track of every bet you place:
-- Round number.
-- Bet size.
-- Result (win or loss).
-- Balance change (delta).
-- Current bankroll.
-
-Example output:
-```bash
-📜 === Bet History ===
-No   | Result | Bet    | Delta  | Balance
---------------------------------------------
-1    | ✅ W   | 10.00  | +10.00 | 1010.00
-2    | ❌ L   | 10.00  | -10.00 | 1000.00
-3    | ❌ L   | 20.00  | -20.00 |  980.00
-4    | ✅ W   | 40.00  | +40.00 | 1020.00
-```
-
-### 2. 📊 Detailed Statistics
-Analyze your performance with aggregated metrics:
-- **Total bets placed**.
-- **Win/loss record**.
-- **ROI (Return on Investment)**.
-- **Net profit/loss**.
-
-Example:
-```bash
-📊 === Statistics ===
-💰 Total bets: 4
-✅ Wins: 2
-❌ Losses: 2
-🎲 Total bet amount: 80.00
-📘 ROI (Return on Investment): +20.00%
-💰 Balance: 1020.00
-```
-
-### 3. 📈 Bankroll Chart
-Visualize the trajectory of your bankroll. A bar chart plots your balance after each round, making it easy to identify trends.  
-Example:
-```bash
-📈 === Bankroll Chart ===
-Initial bankroll: 1000.00
-Max bankroll: 1020.00
-Min bankroll: 980.00
----------------------------------------------
-  1000.00 | ███████
-   980.00 | ████
-  1020.00 | █████████████
----------------------------------------------
-```
 
 ---
 
