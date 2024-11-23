@@ -13,6 +13,6 @@ class HistoryView:
         table.add_column("Balance", justify="right")
 
         for i, (outcome, bet, balance) in enumerate(history, 1):
-            outcome_text = "[bright_green]🎯 Win[/bright_green]" if outcome == 'W' else "[bright_red]❌ Loss[/bright_red]"
+            outcome_text = "[bright_green]✅ Win[/bright_green]" if outcome == 'W' else "[bright_red]❌ Loss[/bright_red]"
             table.add_row(str(i), outcome_text, f"${bet:,.2f}", f"${balance:,.2f}")
         console.print(table)

@@ -31,7 +31,7 @@ def main():
         console.print(f"[bright_cyan]🎲 Current bet: {bettor.format_number(bettor.current_bet)}[/bright_cyan]\n")
         
         console.print("[bright_yellow]Choose an action:[/bright_yellow]")
-        console.print("[bright_white]🎯 [W] Win[/bright_white]")
+        console.print("[bright_white]✅ [W] Win[/bright_white]")
         console.print("[bright_white]❌ [L] Loss[/bright_white]")
         console.print("[bright_white]📜 [H] History[/bright_white]")
         console.print("[bright_white]📊 [S] Statistics[/bright_white]")
